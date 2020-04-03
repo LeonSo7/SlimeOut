@@ -40,9 +40,9 @@ public class Slime : MonoBehaviour
     	}
 
         if (PlayerPrefs.HasKey("_slimeLvl")){
-            _expLvl = PlayerPrefs.GetInt("_slimeLvl");
+            _slimeLvl = PlayerPrefs.GetInt("_slimeLvl");
         } else {
-            _expLvl = 1;
+            _slimeLvl = 1;
             PlayerPrefs.SetInt("_slimeLvl", _expLvl);
         }
 
@@ -69,5 +69,5 @@ public class Slime : MonoBehaviour
         get{ return _slimeLvl; } //Accessor for slime level
         set{ _slimeLvl = value; } //Mutator for slime level
     }
-}
+
 }
