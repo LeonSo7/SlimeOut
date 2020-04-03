@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 1181274520}
   - component: {fileID: 1181274519}
   m_Layer: 5
-  m_Name: 'gameTitleOutTxt '
+  m_Name: 'halfTxt '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 1583580823}
   - component: {fileID: 1583580822}
   m_Layer: 5
-  m_Name: gameTitleTxt
+  m_Name: wholeTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
