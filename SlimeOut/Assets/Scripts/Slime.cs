@@ -8,6 +8,8 @@ public class Slime : MonoBehaviour
 	private int _hungerLvl;
 	[SerializeField]
 	private int _expLvl;
+    [SerializeField]
+    private int _slimeLvl;
 	private bool _serverTime;
 
     // Start is called before the first frame update
@@ -37,6 +39,13 @@ public class Slime : MonoBehaviour
     		PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     	}
 
+        if (PlayerPrefs.HasKey("_slimeLvl")){
+            _expLvl = PlayerPrefs.GetInt("_slimeLvl");
+        } else {
+            _expLvl = 1;
+            PlayerPrefs.SetInt("_slimeLvl", _expLvl);
+        }
+
     	if(_serverTime){
     		updateServer();
     	}
@@ -55,4 +64,10 @@ public class Slime : MonoBehaviour
     	get{ return _hungerLvl; } //Accessor for hunger level
     	set{ _hungerLvl = value; } //Mutator for hunger level
     }
+
+    public int slimeLvl {
+        get{ return _slimeLvl; } //Accessor for slime level
+        set{ _slimeLvl = value; } //Mutator for slime level
+    }
+}
 }
