@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Slime : MonoBehaviour
 {
+	[SerializeField]
 	private int _hungerLvl;
-	private int _happinessLvl;
+	[SerializeField]
+	private int _expLvl;
 	private bool _serverTime;
 
     // Start is called before the first frame update
@@ -21,18 +23,18 @@ public class Slime : MonoBehaviour
     }
 
     void updateState(){
-    	if (PlayerPrefs.HasKey("_happinessLvl")){
-    		_happinessLvl = PlayerPrefs.GetInt("_happinessLvl");
+    	if (PlayerPrefs.HasKey("_expLvl")){
+    		_expLvl = PlayerPrefs.GetInt("_expLvl");
     	} else {
-    		PlayerPrefs.SetInt("_happinessLvl", 100);
-    		_happinessLvl = 100;
+    		_expLvl = 0;
+    		PlayerPrefs.SetInt("_expLvl", _expLvl);
     	}
 
     	if (PlayerPrefs.HasKey("_hungerLvl")){
     		_hungerLvl = PlayerPrefs.GetInt("_hungerLvl");
     	} else {
-    		PlayerPrefs.SetInt("_hungerLvl", 100);
     		_hungerLvl = 100;
+    		PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     	}
 
     	if(_serverTime){
@@ -41,6 +43,16 @@ public class Slime : MonoBehaviour
     }
 
     void updateServer(){
-    	
+
+    }
+
+    public int expLvl {
+    	get { return _expLvl; } //Accesor for exp level
+    	set { _expLvl = value; } //Mutator for exp level
+    }
+
+    public int hungerLvl {
+    	get{ return _hungerLvl; } //Accessor for hunger level
+    	set{ _hungerLvl = value; } //Mutator for hunger level
     }
 }
