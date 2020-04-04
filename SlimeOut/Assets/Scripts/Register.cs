@@ -3,20 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
-using System.Text.RegularExpressions;
 using UnityEngine.UI;
+
+using MongoDB.Bson;
+using MongoDB.Driver;
+
 
 public class Register : MonoBehaviour
 {
+    // mongo
+    public class Order
+    {
+        public enum STATE : byte
+        {
+            NEW = 0,
+            CANCELLED = 1,
+            COMPLETE = 2
+        }
+        public ObjectId Id { get; set; }
+        public string U { get; set; }
+        public string E { get; set; }
+        public string P { get; set; }
+    }
+
+    private MongoClient client;
+    private MongoServer server;
+    private MongoDatabase db;
+    private MongoCollection<Order> orders;
+    //
+
     public GameObject username;
     public GameObject email;
     public GameObject password;
     public GameObject retype_password;
+    public GameObject slimename;
+    public Dropdown slime_color;
 
     private string Username;
     private string Email;
     private string Password;
     private string Retype_password;
+    private string Slimename;
+    private string Slime_color;
+
+    List<string> colors = new List<string>()
+                                            { "Please select slime color",
+                                              "Green",
+                                              "Purple",
+                                              "Red"
+                                            };
 
     private string form;
     private bool email_valid = false;
@@ -32,7 +67,28 @@ public class Register : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PopulateList();
+        //mongo
+        client = new MongoClient(new MongoUrl("mongodb://localhost"));
+        server = client.GetServer();
+        server.Connect();
+        db = server.GetDatabase("local");
+        orders = db.GetCollection<Order>("orders");
+        //
+    }
+
+    private void InsertDocument()
+    {
+        var order = new Order
+        {
+            U = "hello",
+            P = "12345",
+            E = "hello@gmail.com"
+        };
+        orders.Insert(order);
+        Debug.Log("It seems that its adding data in the database");
+
+        // var temp = orders.Find(U == "hello").ToList();
     }
 
     public void Register_button()
@@ -129,13 +185,18 @@ public class Register : MonoBehaviour
                 char Encrypted = (char)(c * i);
                 Password += Encrypted.ToString();
             }
-            form = (Username + Environment.NewLine + Email + Environment.NewLine + Password);
+            form = (Username + Environment.NewLine + Email + Environment.NewLine + Password
+                    + Environment.NewLine + Slimename + Environment.NewLine + Slime_color);
             System.IO.File.WriteAllText(Username + ".txt", form);
+
+            InsertDocument();
 
             username.GetComponent<InputField>().text = "";
             email.GetComponent<InputField>().text = "";
             password.GetComponent<InputField>().text = "";
             retype_password.GetComponent<InputField>().text = "";
+            slimename.GetComponent<InputField>().text = "";
+            slime_color.ClearOptions();
 
             print("Registration Complete");
         }
@@ -159,6 +220,14 @@ public class Register : MonoBehaviour
             {
                 retype_password.GetComponent<InputField>().Select();
             }
+            if (retype_password.GetComponent<InputField>().isFocused)
+            {
+                slimename.GetComponent<InputField>().Select();
+            }
+            if (slimename.GetComponent<InputField>().isFocused)
+            {
+                slime_color.GetComponent<Dropdown>().Select();
+            }
 
         }
 
@@ -174,6 +243,7 @@ public class Register : MonoBehaviour
         Email = email.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
         Retype_password = retype_password.GetComponent<InputField>().text;
+        Slimename = slimename.GetComponent<InputField>().text;
     }
 
     void email_validation()
@@ -204,6 +274,16 @@ public class Register : MonoBehaviour
         {
             email_valid = false;
         }
+    }
+
+    void PopulateList()
+    {
+        slime_color.AddOptions(colors);
+    }
+
+    public void Dropdown_IndexChanged(int index)
+    {
+        Slime_color = colors[index];
     }
 
 
