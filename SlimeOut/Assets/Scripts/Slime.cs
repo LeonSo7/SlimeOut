@@ -67,11 +67,13 @@ public class Slime : MonoBehaviour
             setPlayerTime();
         }
 
-        TimeSpan timeDiff = getTimeDiff();
-        _hungerLvl  -= (int)(timeDiff.TotalHours * 4); // Subtract 4 from hunger every hour
-        if (_hungerLvl  < 0){
-            _hungerLvl = 0; // Set hunger level to 0 if falls below 0
-        }
+        InvokeRepeating("decreaseHunger", 0f, 60f);
+
+        // TimeSpan timeDiff = getTimeDiff();
+        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every hour
+        // if (_hungerLvl  < 0){
+        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        // }
 
 
         // Use server time if available, else use device time
@@ -80,6 +82,19 @@ public class Slime : MonoBehaviour
     	} else {
             InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
         }
+    }
+
+    void decreaseHunger(){
+        TimeSpan timeDiff = getTimeDiff();
+        _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every minute
+        if (_hungerLvl  < 0){
+            _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        }
+
+        // _hungerLvl  -= (int)(1); // Subtract 1 from hunger every minute
+        // if (_hungerLvl  < 0){
+        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        // }
     }
 
     void updateServer(){
@@ -131,9 +146,10 @@ public class Slime : MonoBehaviour
 
     // Add exp to exp level
     public void updateExpLvl(int exp){
-        expLvl += exp;
-        if (expLvl >= 100){
-            slimeLvl += 1;
+        _expLvl += exp;
+        if (_expLvl >= 100){
+            _expLvl = 0;
+            _slimeLvl += 1;
         }
     }
 
