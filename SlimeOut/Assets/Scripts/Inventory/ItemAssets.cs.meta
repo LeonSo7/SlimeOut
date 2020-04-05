@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4b6454cb6177e1e4bb05d83dea6b1af3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blue1Sprite: {fileID: 21300000, guid: 9e204dcc987c5f04cbc8af09b587a6e4, type: 3}
+  - blue2Sprite: {fileID: 21300000, guid: 9e204dcc987c5f04cbc8af09b587a6e4, type: 3}
+  - blue3Sprite: {fileID: 21300000, guid: da42403f8d627c849b9c2ac6c713c457, type: 3}
+  - red1Sprite: {instanceID: 0}
+  - red2Sprite: {instanceID: 0}
+  - red3Sprite: {instanceID: 0}
+  - green1Sprite: {fileID: 21300000, guid: d042166627630fe4380143cd28577d26, type: 3}
+  - green2Sprite: {instanceID: 0}
+  - green3Sprite: {instanceID: 0}
+  - xpSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
