@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-using System;
-using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+using universal;
+
+/// <summary>
+/// checks if user exists in the database, if does, ten transitions to slime scene
+/// </summary>
 public class Login : MonoBehaviour
 {
     public GameObject username;
@@ -14,15 +15,12 @@ public class Login : MonoBehaviour
 
     private string Username;
     private string Password;
-    private string[] Lines;
+    private string Lines;
     private string Decrypted_password;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    /// <summary>
+    /// event handler when login button is clicked
+    /// </summary>
     public void Login_button()
     {
         bool UN = false;
@@ -30,10 +28,10 @@ public class Login : MonoBehaviour
 
         if(Username != "")
         {
-            if(System.IO.File.Exists(Username + ".txt"))
+            if(Register.UserData(Username) != null)
             {
                 UN = true;
-                Lines = System.IO.File.ReadAllLines(Username + ".txt");
+                // Lines = System.IO.File.ReadAllLines(Username + ".txt");
             }
             else
             {
@@ -47,11 +45,12 @@ public class Login : MonoBehaviour
 
         if(Password != "")
         {
-            if (System.IO.File.Exists(Username + ".txt"))
+            if (Register.UserData(Username) != null)
             {
                 
                 int i = 1;
-                foreach (char c in Lines[2])
+                Lines = Register.UserData(Username).P;
+                foreach (char c in Lines)
                 {
                     
                     i++;
@@ -87,6 +86,9 @@ public class Login : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// gets the username and password from UI and and does processing when button is pressed
+    /// </summary>
     void Update()
     {
 
@@ -108,6 +110,6 @@ public class Login : MonoBehaviour
 
         Username = username.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
-
     }
+
 }
