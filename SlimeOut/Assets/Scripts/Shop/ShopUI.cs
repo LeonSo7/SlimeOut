@@ -44,9 +44,11 @@ public class ShopUI : MonoBehaviour
         }
         int c = selectedItem.GetCost();
         if (inventory.balance >= c) {
-            inventory.balance -= c;
-            inventory.Add(selectedItem);
-            UpdateText();
+            if (inventory.Add(selectedItem)) {
+                inventory.balance -= c;
+                UpdateText();
+            }
+            else buyWindow.GetComponentInChildren<Text>().text = "Insufficient inventory space!";
         }
         else buyWindow.GetComponentInChildren<Text>().text = "Insufficient funds! You need " + (c - inventory.balance) + " more coins!";
     }
@@ -65,6 +67,10 @@ public class ShopUI : MonoBehaviour
         UpdateText();
     }
     public void UpdateText() {
+        if (selectedItem == null) {
+            buyWindow.GetComponentInChildren<Text>().text = "Select an item!";
+            return;
+        }
         buyWindow.GetComponentInChildren<Text>().text = "Item: " + selectedItem.GetDescription() + 
             "\nCost: " + selectedItem.GetCost() +
             "\nYour count: " + inventory.Count(selectedItem) +

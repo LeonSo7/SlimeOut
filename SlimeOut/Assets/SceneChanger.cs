@@ -11,4 +11,8 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("InventoryScene");
     }
+    public void GoToSlime()
+    {
+        SceneManager.LoadScene("SlimeScene");
+    }
 }
