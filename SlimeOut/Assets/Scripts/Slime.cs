@@ -11,6 +11,8 @@ public class Slime : MonoBehaviour
 	private int _expLvl;
     [SerializeField]
     private int _slimeLvl;
+    [SerializeField]
+    private string _name;
 	private bool _serverTime;
 
     // Start is called before the first frame update
@@ -18,6 +20,13 @@ public class Slime : MonoBehaviour
     {
         // PlayerPrefs.SetString("playerTime", "04/05/2020 9:00:12");
         updateState(); 
+
+        // Check if slime name is exists
+        if(! PlayerPrefs.HasKey("name")){ // No name
+            PlayerPrefs.SetString("name", "Jerry"); // Default Name
+        } else { // Name exists
+            _name = PlayerPrefs.GetString("name");
+        }
     }
 
     // Update is called once per frame
@@ -104,9 +113,22 @@ public class Slime : MonoBehaviour
     	set{ _hungerLvl = value; } // Mutator for hunger level
     }
 
+    public string name {
+        get{ return _name; } // Accessor for slime name
+        set{ _name = value; } // Mutator for slime name
+    }
+
     public int slimeLvl {
         get{ return _slimeLvl; } // Accessor for slime level
         set{ _slimeLvl = value; } // Mutator for slime level
+    }
+
+    // Add exp to exp level
+    public void updateExpLvl(int exp){
+        expLvl += exp;
+        if (expLvl >= 100){
+            slimeLvl += 1;
+        }
     }
 
 }
