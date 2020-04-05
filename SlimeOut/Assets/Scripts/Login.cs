@@ -49,7 +49,7 @@ public class Login : MonoBehaviour
             {
                 
                 int i = 1;
-                Lines = Register.UserData(Username).P;
+                Lines = Register.UserData(Username).O_password;
                 foreach (char c in Lines)
                 {
                     

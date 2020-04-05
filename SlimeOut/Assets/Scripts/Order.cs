@@ -13,12 +13,16 @@ public class Order
         COMPLETE = 2
     }
     public ObjectId Id { get; set; }
-    public string U { get; set; } // for username
-    public string E { get; set; } // for email
-    public string P { get; set; } // for encrypted password
-    public string S { get; set; } // for slime name
-    public string SC { get; set; } // for slime color
-
+    public string O_username { get; set; } // for username
+    public string O_email { get; set; } // for email
+    public string O_password { get; set; } // for encrypted password
+    public string O_slimename { get; set; } // for slime name
+    public string O_slime_color { get; set; } // for slime color
+    public int O_balance { get; set; } // for currency
+    public int O_health { get; set; } // for health
+    public int O_slime_level { get; set; } // for slime level
+    public int O_hunger_level { get; set; } // for hunger level
+    public int O_exp_level { get; set; } // for exp level
 }
 
 

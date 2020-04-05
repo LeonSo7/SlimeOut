@@ -37,9 +37,9 @@ namespace universal
 
         List<string> colors = new List<string>()
                                             { "Please select slime color",
-                                              "Green",
-                                              "Purple",
-                                              "Red"
+                                              "Red",
+                                              "Blue",
+                                              "Green"
                                             };
 
         // private string form;
@@ -72,11 +72,16 @@ namespace universal
         {
             var info = new Order
             {
-                U = Username,
-                P = Password,
-                E = Email,
-                S = Slimename,
-                SC = Slime_color
+                O_username = Username,
+                O_email = Email,
+                O_password = Password,
+                O_slimename = Slimename,
+                O_slime_color = Slime_color,
+                O_balance = 1000,
+                O_health = 100,
+                O_slime_level = 0,
+                O_hunger_level = 0,
+                O_exp_level = 0
             };
             user_info.Insert(info);
 
@@ -292,7 +297,7 @@ namespace universal
         /// </summary>
         public static Order UserData(string u_name)
         {
-            var query = Query<Order>.EQ(u => u.U, u_name);
+            var query = Query<Order>.EQ(u => u.O_username, u_name);
             return user_info.FindOne(query);
         }
         #endregion
