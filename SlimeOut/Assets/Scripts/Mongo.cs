@@ -6,11 +6,11 @@ public class Mongo
     private const string MONGO_URI = "";
     private const string DATABASE_NAME = "";
 
-    private MongoClient client;
-    private MongoServer server;
-    private MongoDatabase db;
+    public MongoClient client;
+    public MongoServer server;
+    public MongoDatabase db;
 
-    private void Init()
+    public void Init()
     {
         client = new MongoClient(MONGO_URI);
         server = client.GetServer();

@@ -6,6 +6,9 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using MongoDB.Driver.Builders;
+
+using universal;
 
 public class Login : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public class Login : MonoBehaviour
 
     private string Username;
     private string Password;
-    private string[] Lines;
+    private string Lines;
     private string Decrypted_password;
 
     // Start is called before the first frame update
@@ -30,10 +33,10 @@ public class Login : MonoBehaviour
 
         if(Username != "")
         {
-            if(System.IO.File.Exists(Username + ".txt"))
+            if(Register.UserExists(Username) != null)
             {
                 UN = true;
-                Lines = System.IO.File.ReadAllLines(Username + ".txt");
+                // Lines = System.IO.File.ReadAllLines(Username + ".txt");
             }
             else
             {
@@ -47,11 +50,12 @@ public class Login : MonoBehaviour
 
         if(Password != "")
         {
-            if (System.IO.File.Exists(Username + ".txt"))
+            if (Register.UserExists(Username) != null)
             {
                 
                 int i = 1;
-                foreach (char c in Lines[2])
+                Lines = Register.UserExists(Username).P;
+                foreach (char c in Lines)
                 {
                     
                     i++;
@@ -108,6 +112,6 @@ public class Login : MonoBehaviour
 
         Username = username.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
-
     }
+
 }
