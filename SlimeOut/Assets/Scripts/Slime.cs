@@ -5,6 +5,7 @@ using System;
 
 public class Slime : MonoBehaviour
 {
+
 	[SerializeField]
 	private int _hungerLvl;
 	[SerializeField]
@@ -15,6 +16,11 @@ public class Slime : MonoBehaviour
     private string _name;
 	private bool _serverTime;
 
+   public static Slime instance { get; private set; }
+
+   private void Awake() {
+       instance = this;
+   }
     // Start is called before the first frame update
     void Start()
     {
