@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{4FAC0723-7DC9-A443-2449-746607E02070}|">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Assets/Scripts/Register.cs" Line="9" Column="22" />
+      <File FileName="Assets/Scripts/Mongo.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/Utility.cs" Line="15" Column="2" />
+      <File FileName="Assets/Scripts/Login.cs" Line="105" Column="46" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SlimeOut" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True" />
+            </Node>
+            <Node name="Packages" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d32c4ff1-7208-4e5d-a574-28f2bf728e28" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

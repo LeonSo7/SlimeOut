@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SlimeScene.unity
+    guid: 835a6d9074c293c41907335c5bd2e2a6
+  - enabled: 1
+    path: Assets/Scenes/InventoryScene.unity
+    guid: 62d4817c691994241900e84150ea7ab6
+  - enabled: 1
+    path: Assets/Scenes/ShopScene.unity
+    guid: 6315f96e89aa5054ea8dc8d2009e0d31
   m_configObjects: {}
