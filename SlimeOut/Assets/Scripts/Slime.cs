@@ -30,18 +30,9 @@ public class Slime : MonoBehaviour
         }
    }
    
-    // Start is called before the first frame update
     void Start()
     {
-        // PlayerPrefs.SetString("playerTime", "04/05/2020 9:00:12");
         updateState(); 
-
-        // Check if slime name is exists
-        if(! PlayerPrefs.HasKey("name")){ // No name
-            PlayerPrefs.SetString("name", "Jerry"); // Default Name
-        } else { // Name exists
-            _name = PlayerPrefs.GetString("name");
-        }
     }
 
     // Update is called once per frame
@@ -51,7 +42,14 @@ public class Slime : MonoBehaviour
     }
 
     void updateState(){
-        // Check if slime colour is exists
+        // Check if slime name exists
+        if(! PlayerPrefs.HasKey("name")){ // No name
+            PlayerPrefs.SetString("name", "Jerry"); // Default Name
+        } else { // Name exists
+            _name = PlayerPrefs.GetString("name");
+        }
+
+        // Check if slime colour exists
         if(! PlayerPrefs.HasKey("colour")){ // No colour
             PlayerPrefs.SetInt("colour", 0); // Default colour
         } else { // Name exists
@@ -79,25 +77,20 @@ public class Slime : MonoBehaviour
             PlayerPrefs.SetInt("_slimeLvl", _expLvl);
         }
 
-        if (!PlayerPrefs.HasKey("playerTime")){
-            setPlayerTime();
-        }
+        // if (!PlayerPrefs.HasKey("playerTime")){
+        //     setPlayerTime();
+        // }
 
         InvokeRepeating("decreaseHunger", 30f, 30f);
 
-        // TimeSpan timeDiff = getTimeDiff();
-        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every hour
-        // if (_hungerLvl  < 0){
-        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
-        // }
+     //    // Use server time if available, else use device time
+    	// if(_serverTime){
+    	// 	updateServer();
+    	// } else {
+     //        InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
+     //    }
 
-
-        // Use server time if available, else use device time
-    	if(_serverTime){
-    		updateServer();
-    	} else {
-            InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
-        }
+        InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
     }
 
     void decreaseHunger(){
@@ -114,23 +107,23 @@ public class Slime : MonoBehaviour
         PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     }
 
-    void updateServer(){
-        // If have server after
-    }
+    // void updateServer(){
+    //     // If have server after
+    // }
 
-    void updateDevice(){
-        setPlayerTime();
-    }
+    // void updateDevice(){
+    //     setPlayerTime();
+    // }
 
-    void setPlayerTime(){
-        PlayerPrefs.SetString("playerTime", getTimeStr());
-    }
+    // void setPlayerTime(){
+    //     PlayerPrefs.SetString("playerTime", getTimeStr());
+    // }
 
-    string getTimeStr(){
-        DateTime now = DateTime.Now; // Get current time on system
-        string dateFormat = now.Month + "/" + now.Day + "/" + now.Year + " " + now.Hour + ":" + now.Minute + ":" + now.Second;
-        return dateFormat;
-    }
+    // string getTimeStr(){
+    //     DateTime now = DateTime.Now; // Get current time on system
+    //     string dateFormat = now.Month + "/" + now.Day + "/" + now.Year + " " + now.Hour + ":" + now.Minute + ":" + now.Second;
+    //     return dateFormat;
+    // }
 
     TimeSpan getTimeDiff(){
         if (_serverTime){
@@ -164,7 +157,7 @@ public class Slime : MonoBehaviour
         get{ return _name; } // Accessor for slime name
         set{ // Mutator for slime name
             _name = value;
-            PlayerPrefs.SetString("name", "Jerry");
+            PlayerPrefs.SetString("name", _name); // Save name to PlayerPrefs
         } 
     }
 
