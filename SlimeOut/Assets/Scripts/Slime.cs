@@ -137,6 +137,9 @@ public class Slime : MonoBehaviour
     	get{ return _hungerLvl; } // Accessor for hunger level
     	set{ // Mutator for hunger level
             _hungerLvl += value;
+            if (_hungerLvl >= 100){
+                _hungerLvl = 100;
+            }
             PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
         } 
     }
