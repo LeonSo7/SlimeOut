@@ -15,19 +15,23 @@ public class BattleManager : MonoBehaviour
 
     public Animator petAnimator;
     public Animator oppAnimator;
+    public Animator skillAnimator;
 
-    public int petHealth;
-    public int oppHealth;
-    public int oppDamage;
-    public int petDamage;
-    public int petLevel;
-    public int oppLevel;
-    public string petColor;
-    public string oppColor;
+    //private Slime Slime = Slime.instance;
+    //private Inventory Inventory = Inventory.instance;
 
-    public string[] reward;
-    public int income;
-    public int exp;
+    private int petHealth;
+    private int oppHealth;
+    private int oppDamage;
+    private int petDamage;
+    private int petLevel;
+    private int oppLevel;
+    private string petColor;
+    private string oppColor;
+
+    private Item[] reward;
+    private int income;
+    private int exp;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +40,17 @@ public class BattleManager : MonoBehaviour
         oppHealth = 100;
         oppDamage = 0;
         petDamage = 0;
-        //petLevel = PlayerPrefs.GetInt("_slimeLvl");
+        //petLevel = Slime.instance.slimeLvl;
         petLevel = 10;
-        petColor = PlayerPrefs.GetString("_slimeColor");
+        //petColor = PlayerPrefs.GetString("_slimeColor");
         oppLevel = petLevel + rnd.Next(-2, 2);
-        oppColor = ("Purple");
-        UpdateState();
+        oppColor = ("Blue");
+        StartCoroutine(UpdateState());
         playerTurn();
     }
 
     // Update is called once per frame
-    void UpdateState()
+    IEnumerator UpdateState()
     {
         if(oppHealth <= 0)
         {
@@ -58,6 +62,7 @@ public class BattleManager : MonoBehaviour
         }
         petHealth -= oppDamage;
         oppHealth -= petDamage;
+        yield return new WaitForSeconds (1);
         petH.GetComponent<Text>().text = petHealth.ToString();
         oppH.GetComponent<Text>().text = oppHealth.ToString();
     }
@@ -72,18 +77,19 @@ public class BattleManager : MonoBehaviour
     void Attack()
     {
         petAnimator.SetTrigger("Attack");
-        petDamage = petLevel*5-oppLevel*2;
+        petDamage = petLevel*3-oppLevel*1;
         oppDamage = 0;
-        UpdateState();
+        StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
     }
 
     void Skill()
     {
-        petAnimator.SetTrigger("Attack");
-        petDamage = petLevel*8-oppLevel*3;
+        petAnimator.SetTrigger("Skill");
+        skillAnimator.SetTrigger("Skill");
+        petDamage = petLevel*5-oppLevel*2;
         oppDamage = 0;
-        UpdateState();
+        StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
     }
 
@@ -93,14 +99,14 @@ public class BattleManager : MonoBehaviour
         oppAnimator.SetTrigger("oppAttack");
         oppDamage = oppLevel*5-petLevel*3;
         petDamage = 0;
-        UpdateState();
+        StartCoroutine(UpdateState());
         yield return new WaitForSeconds (1);
         playerTurn();
     }
 
     void winBattle()
     {
-        reward = new string[] { "", "", "" };
+        reward = new Item[] {new Item(Item.ItemType.blue1), new Item(Item.ItemType.blue1)};
         income = 3;
         exp = oppLevel*10;
         //SceneManager.LoadScene("BattleWinScene");
@@ -109,7 +115,6 @@ public class BattleManager : MonoBehaviour
 
     void loseBattle()
     {
-        reward = new string[] {""};
         income = 1;
         exp = oppLevel;
         //SceneManager.LoadScene("BattleLoseScene");
@@ -118,8 +123,9 @@ public class BattleManager : MonoBehaviour
 
     /*void checkout()
     {
-        PlayerPrefs.set("_expLvl", + exp);
-        PlayerPrefs.set("_currLvl", + income);
-        PlayerPrefs.set("_items", append(reward));
+        Inventory.balance += income;
+        Slime.expLvl += exp;
+        foreach(Item i in reward)
+            Inventory.Add(i);
     }*/
 }
