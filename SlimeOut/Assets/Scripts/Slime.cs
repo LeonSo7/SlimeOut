@@ -85,13 +85,6 @@ public class Slime : MonoBehaviour
 
         InvokeRepeating("decreaseHunger", 30f, 30f);
 
-        // TimeSpan timeDiff = getTimeDiff();
-        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every hour
-        // if (_hungerLvl  < 0){
-        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
-        // }
-
-
         // Use server time if available, else use device time
     	if(_serverTime){
     		updateServer();
