@@ -24,7 +24,23 @@ public class Item
     public Item (ItemType t) {
         type = t;
     }
-
+    public void Consume() {
+        switch (type) {
+            default:
+            case ItemType.blue1:    Slime.instance.hungerLvl += 5; break;
+            case ItemType.blue2:    Slime.instance.hungerLvl += 10; break;
+            case ItemType.blue3:    Slime.instance.hungerLvl += 20; break;
+            case ItemType.red1:     Slime.instance.hungerLvl += 5; break;
+            case ItemType.red2:     Slime.instance.hungerLvl += 10; break;
+            case ItemType.red3:     Slime.instance.hungerLvl += 20; break;
+            case ItemType.green1:   Slime.instance.hungerLvl += 5; break;
+            case ItemType.green2:   Slime.instance.hungerLvl += 10; break;
+            case ItemType.green3:   Slime.instance.hungerLvl += 20; break;
+            case ItemType.xp1:      Slime.instance.expLvl += 5; break;
+            case ItemType.xp2:      Slime.instance.expLvl += 10; break;
+            case ItemType.xp3:      Slime.instance.expLvl += 20; break;
+        }
+    }
     public Sprite GetSprite() {
         switch (type) {
             default:

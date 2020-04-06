@@ -32,6 +32,7 @@ public class InventoryUI : MonoBehaviour
         }
         inventory.Remove(selectedItem);
         useWindow.GetComponentInChildren<Text>().text = "Consumed item!";
+        selectedItem.Consume();
         selectedItem = null;
         UpdateUI();
     }
