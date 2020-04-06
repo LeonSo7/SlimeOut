@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject slimeR;
     public GameObject slimeG;
     public GameObject slimeB;
-    private int _colour; //0G, 1B, 2R (Slime colour)
+
+    private int _colour;
+
 
     public static GameManager instance { get; private set; }
 
@@ -33,12 +35,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         slime = Slime.instance;
-        // Check if slime colour is exists
-        if(! PlayerPrefs.HasKey("colour")){ // No colour
-            PlayerPrefs.SetInt("colour", 0); // Default colour
-        } else { // Name exists
-            _colour = PlayerPrefs.GetInt("colour");
-        }
+
     }
 
     // Update is called once per frame
@@ -48,6 +45,7 @@ public class GameManager : MonoBehaviour
         hungerTxt.GetComponent<Text>().text = "" + slime.hungerLvl;
         lvlTxt.GetComponent<Text>().text = "" + slime.slimeLvl;
         nameTxt.GetComponent<Text>().text = slime.name;
+        _colour = slime.colour;
 
         if (_colour == 0){
             triggerSlimeG();
@@ -90,12 +88,6 @@ public class GameManager : MonoBehaviour
         slimeG.SetActive(false);
     }
 
-    public int colour {
-        get{ return _colour; } // Accessor for colour
-        set{ // Mutator for colour
-            _colour = value;
-            PlayerPrefs.SetInt("colour", _colour);
-        } 
-    }
+
 
 }
