@@ -22,7 +22,8 @@ public class Order
     public int O_slime_level { get; set; } // for slime level
     public int O_hunger_level { get; set; } // for hunger level
     public int O_exp_level { get; set; } // for exp level
-}
+    public string[] O_item_strings { get; set; }
+} 
 
 
 

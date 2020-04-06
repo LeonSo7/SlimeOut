@@ -28,7 +28,7 @@ namespace universal
         public GameObject slimename;
         public Dropdown slime_color;
 
-        private string Username;
+        private static string Username;
         private string Email;
         private string Password;
         private string Retype_password;
@@ -82,12 +82,27 @@ namespace universal
                 O_health = 100,
                 O_slime_level = 0,
                 O_hunger_level = 0,
-                O_exp_level = 0
+                O_exp_level = 0,
+                O_item_strings = new string[0],
             };
             user_info.InsertOne(info);
             Debug.Log("seems like its working");
 
             // Debug.Log("It seems that its adding data in the database");
+        }
+        public static void SaveInventory() {
+            Inventory inv = Inventory.instance;
+            string[] items = new string[inv.items.Count];
+
+            int j = 0;
+            foreach(var i in inv.items) items[j++] = i.ToString();
+
+            var info = new InvSchema
+            {
+                O_username = Username,
+                O_items = items,
+                O_balance = inv.balance,
+            };
         }
 
         public void Register_button()
@@ -99,7 +114,6 @@ namespace universal
 
             if (Username != "")
             {
-        
                 if (!UserExists(Username))
                 {
                     UN = true;
@@ -335,9 +349,7 @@ namespace universal
             }
             return null;
         }
-
     }
-
 }
 
 
