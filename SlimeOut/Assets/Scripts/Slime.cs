@@ -143,7 +143,7 @@ public class Slime : MonoBehaviour
     public int hungerLvl {
     	get{ return _hungerLvl; } // Accessor for hunger level
     	set{ // Mutator for hunger level
-            _hungerLvl += value;
+            _hungerLvl = value;
             if (_hungerLvl >= 100){
                 _hungerLvl = 100;
             }
@@ -170,7 +170,7 @@ public class Slime : MonoBehaviour
 
     // Add exp to exp level
     public void updateExpLvl(int exp){
-        _expLvl += exp;
+        _expLvl = exp;
 
         PlayerPrefs.SetInt("_expLvl", _expLvl);
 
