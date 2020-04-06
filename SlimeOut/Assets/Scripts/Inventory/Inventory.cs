@@ -43,4 +43,14 @@ public class Inventory : MonoBehaviour
         }
         return count;
     }
+    public string[] ToStringArray () {
+        string[] result = new string[items.Count];
+        int j = 0;
+        foreach (var i in items) result[j++] = i.ToString();
+        return result;
+    }
+    public void setFromStringArray(string[] input) {
+        items = new List<Item>();
+        for (int i = 0; i < input.Length; i++) items.Add(new Item(input[i]));
+    }
 }
