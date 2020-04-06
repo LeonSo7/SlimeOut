@@ -91,7 +91,10 @@ public class GameManager : MonoBehaviour
 
     public int colour {
         get{ return _colour; } // Accessor for colour
-        set{ _colour = value; } // Mutator for colour
+        set{ // Mutator for colour
+            _colour = value;
+            PlayerPrefs.SetInt("colour", _colour);
+        } 
     }
 
 }
