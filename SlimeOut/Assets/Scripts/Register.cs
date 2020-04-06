@@ -310,7 +310,6 @@ namespace universal
         /// </summary>
         public static bool UserExists(string uname)
         {
-<<<<<<< HEAD
             var recs = UserData();
             foreach (var rec in recs)
             {
@@ -321,10 +320,6 @@ namespace universal
                 }
             }
             return false;
-=======
-            var query = Query<Order>.EQ(u => u.O_username, u_name);
-            return user_info.FindOne(query);
->>>>>>> b65476132876b92ae2aadedc234099dadb3b58a5
         }
         #endregion
 
