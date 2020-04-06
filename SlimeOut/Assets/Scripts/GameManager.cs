@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject slimeR;
     public GameObject slimeG;
     public GameObject slimeB;
-    private int _colour; //0G, 1B, 2R
+    private int _colour; //0G, 1B, 2R (Slime colour)
 
     public static GameManager instance { get; private set; }
 
