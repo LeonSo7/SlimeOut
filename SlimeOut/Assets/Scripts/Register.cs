@@ -34,7 +34,17 @@ namespace universal
         private string Retype_password;
         private string Slimename;
         private string Slime_color;
+        public static Register instance { get; private set; }
 
+        private void Awake() {
+            if (instance == null) {
+                DontDestroyOnLoad (gameObject);
+                instance = this;
+            } 
+            else if (instance != this) {
+                Destroy(gameObject);
+            }
+        }
         List<string> colors = new List<string>()
                                             { "Please select slime color",
                                               "Red",
@@ -89,6 +99,26 @@ namespace universal
             Debug.Log("seems like its working");
 
             // Debug.Log("It seems that its adding data in the database");
+        }
+
+        public void SaveDocument() {
+            var info = new Order
+            {
+                O_username = Username,
+                O_email = Email,
+                O_password = Password,
+                O_slimename = Slimename,
+                O_slime_color = Slime_color,
+                O_balance = Inventory.instance.balance,
+                O_health = 100,
+                O_slime_level = Slime.instance.slimeLvl,
+                O_hunger_level = Slime.instance.hungerLvl,
+                O_exp_level = Slime.instance.slimeLvl,
+                O_item_strings = Inventory.instance.ToStringArray(),
+            };
+            var filter = Builders<Order>.Filter.Eq("O_username", Username);
+            user_info.FindOneAndReplace(filter, info);
+            Debug.Log("seems like its working");
         }
         
 
