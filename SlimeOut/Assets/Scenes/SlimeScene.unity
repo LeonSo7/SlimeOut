@@ -207,7 +207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &65864215
 GameObject:
@@ -2638,7 +2638,6 @@ GameObject:
   - component: {fileID: 1090341092}
   - component: {fileID: 1090341091}
   - component: {fileID: 1090341090}
-  - component: {fileID: 1090341089}
   m_Layer: 0
   m_Name: petR
   m_TagString: Untagged
@@ -2646,22 +2645,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1090341089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090341088}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f900686de4983a4cb6daefa6c27d5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hungerLvl: 0
-  _expLvl: 0
-  _slimeLvl: 0
-  _name: Charles
 --- !u!95 &1090341090
 Animator:
   serializedVersion: 3
@@ -3451,7 +3434,6 @@ GameObject:
   - component: {fileID: 1261167493}
   - component: {fileID: 1261167492}
   - component: {fileID: 1261167491}
-  - component: {fileID: 1261167490}
   m_Layer: 0
   m_Name: petG
   m_TagString: Untagged
@@ -3459,22 +3441,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1261167490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261167489}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f900686de4983a4cb6daefa6c27d5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hungerLvl: 0
-  _expLvl: 0
-  _slimeLvl: 0
-  _name: Jerry
 --- !u!95 &1261167491
 Animator:
   serializedVersion: 3
@@ -3554,7 +3520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285483883
 GameObject:
@@ -4546,7 +4512,6 @@ GameObject:
   - component: {fileID: 1513518890}
   - component: {fileID: 1513518889}
   - component: {fileID: 1513518888}
-  - component: {fileID: 1513518887}
   m_Layer: 0
   m_Name: petB
   m_TagString: Untagged
@@ -4554,22 +4519,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1513518887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513518886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f900686de4983a4cb6daefa6c27d5c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hungerLvl: 0
-  _expLvl: 0
-  _slimeLvl: 0
-  _name: Charles
 --- !u!95 &1513518888
 Animator:
   serializedVersion: 3
@@ -4649,7 +4598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545841139
 GameObject:
@@ -6112,7 +6061,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984252884
 GameObject:

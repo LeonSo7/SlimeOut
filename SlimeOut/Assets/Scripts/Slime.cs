@@ -27,6 +27,7 @@ public class Slime : MonoBehaviour
             Destroy(gameObject);
         }
    }
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -142,7 +143,10 @@ public class Slime : MonoBehaviour
     public int hungerLvl {
     	get{ return _hungerLvl; } // Accessor for hunger level
     	set{ // Mutator for hunger level
-            _hungerLvl = value;
+            _hungerLvl += value;
+            if (_hungerLvl >= 100){
+                _hungerLvl = 100;
+            }
             PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
         } 
     }
