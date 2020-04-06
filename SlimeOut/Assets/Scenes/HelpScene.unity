@@ -414,7 +414,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 254618982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f30b6fb941b924e841612e113130e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b540ec8d932e74081d67fe6720c06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
-  m_MinHeight: 40
+  m_MinHeight: 26
 --- !u!114 &254618985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 40
+  m_PreferredHeight: 26
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 779000001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f30b6fb941b924e841612e113130e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b540ec8d932e74081d67fe6720c06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1253,7 +1253,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
-  m_MinHeight: 40
+  m_MinHeight: 26
 --- !u!114 &779000004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 40
+  m_PreferredHeight: 26
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 799440823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f30b6fb941b924e841612e113130e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b540ec8d932e74081d67fe6720c06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1418,7 +1418,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
-  m_MinHeight: 40
+  m_MinHeight: 26
 --- !u!114 &799440826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 40
+  m_PreferredHeight: 26
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -1574,59 +1574,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834038320}
   m_CullTransparentMesh: 0
---- !u!1 &860943094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 860943096}
-  - component: {fileID: 860943095}
-  m_Layer: 0
-  m_Name: _Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &860943095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860943094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9edc97e905ec4468d5008f85e948af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expTxt: {fileID: 0}
-  hungerTxt: {fileID: 0}
-  lvlTxt: {fileID: 0}
-  namePanel: {fileID: 0}
-  nameInput: {fileID: 0}
-  nameTxt: {fileID: 0}
-  slime: {fileID: 0}
-  slimeR: {fileID: 0}
-  slimeG: {fileID: 0}
-  slimeB: {fileID: 0}
---- !u!4 &860943096
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860943094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898535670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1646,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898535670}
   m_CullTransparentMesh: 0
+--- !u!1 &907200588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907200590}
+  - component: {fileID: 907200589}
+  m_Layer: 0
+  m_Name: Navigator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &907200589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907200588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba9bcbafee358c4fa402495b92a6646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &907200590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907200588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 623.43787, y: 531.9341, z: -9.165065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915356644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,7 +1812,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 925160054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f30b6fb941b924e841612e113130e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b540ec8d932e74081d67fe6720c06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1857,7 +1847,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
-  m_MinHeight: 40
+  m_MinHeight: 26
 --- !u!114 &925160057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,7 +1864,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 40
+  m_PreferredHeight: 26
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -2741,8 +2731,8 @@ GameObject:
   - component: {fileID: 1336587297}
   - component: {fileID: 1336587296}
   - component: {fileID: 1336587295}
-  - component: {fileID: 1336587294}
   - component: {fileID: 1336587293}
+  - component: {fileID: 1336587294}
   m_Layer: 5
   m_Name: Accordian
   m_TagString: Untagged
@@ -2796,7 +2786,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1336587291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27be3a5f3d115c14ba06b7b0225c429b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7388b6b8a7b19644bac3e6299682a9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Transition: 1
@@ -3110,7 +3100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 860943095}
+      - m_Target: {fileID: 907200589}
         m_MethodName: SlimeScene
         m_Mode: 1
         m_Arguments:
@@ -3243,7 +3233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1778435247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f30b6fb941b924e841612e113130e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 52b540ec8d932e74081d67fe6720c06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3278,7 +3268,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
-  m_MinHeight: 40
+  m_MinHeight: 26
 --- !u!114 &1778435250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3295,7 +3285,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 40
+  m_PreferredHeight: 26
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
