@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using MongoDB.Driver;
-using MongoDB.Driver.Builders;
+using MongoDB.Bson;
 
 namespace universal
 {
@@ -16,9 +16,9 @@ namespace universal
     {
         // mongo
         public MongoClient client;
-        public MongoServer server;
-        public MongoDatabase db;
-        public static MongoCollection<Order> user_info;
+        public static  IMongoDatabase db;
+        public static IMongoCollection<Order> user_info;
+
         //
 
         public GameObject username;
@@ -37,9 +37,9 @@ namespace universal
 
         List<string> colors = new List<string>()
                                             { "Please select slime color",
-                                              "Green",
-                                              "Purple",
-                                              "Red"
+                                              "Red",
+                                              "Blue",
+                                              "Green"
                                             };
 
         // private string form;
@@ -60,25 +60,32 @@ namespace universal
         void Start()
         {
             PopulateList();
-            
-            client = new MongoClient(new MongoUrl("mongodb://localhost"));
-            server = client.GetServer();
-            server.Connect();
-            db = server.GetDatabase("local");
+
+            // client = new MongoClient(new MongoUrl("mongodb://:Atal123@Atal@cluster0-1i8se.mongodb.net/test?retryWrites=false&w=majority"));
+            client = new MongoClient("mongodb+srv://tiwarimkt:Atal123Atal@cluster0-1i8se.mongodb.net/gameDB?retryWrites=true&w=majority");
+            db = client.GetDatabase("gameDB");
             user_info = db.GetCollection<Order>("user_info");
+            //
+            
         }
 
         public void InsertDocument()
         {
             var info = new Order
             {
-                U = Username,
-                P = Password,
-                E = Email,
-                S = Slimename,
-                SC = Slime_color
+                O_username = Username,
+                O_email = Email,
+                O_password = Password,
+                O_slimename = Slimename,
+                O_slime_color = Slime_color,
+                O_balance = 1000,
+                O_health = 100,
+                O_slime_level = 0,
+                O_hunger_level = 0,
+                O_exp_level = 0
             };
-            user_info.Insert(info);
+            user_info.InsertOne(info);
+            Debug.Log("seems like its working");
 
             // Debug.Log("It seems that its adding data in the database");
         }
@@ -92,13 +99,14 @@ namespace universal
 
             if (Username != "")
             {
-                if (UserData(Username) == null)
+        
+                if (!UserExists(Username))
                 {
                     UN = true;
                 }
                 else
                 {
-                    Debug.LogWarning("Username Taken");
+                    Debug.LogWarning("Username Taken here");
                 }
             }
             else
@@ -281,21 +289,52 @@ namespace universal
             slime_color.AddOptions(colors);
         }
 
-        public void Dropdown_IndexChanged(int index)
+        public void Dropdown_IndexChanged(int i)
         {
-            Slime_color = colors[index];
+            Slime_color = colors[i];
         }
 
         #region
         /// <summary>
-        /// to check if the user already exits in the database
+        /// to list all documents in user_info collection in gameDB database
         /// </summary>
-        public static Order UserData(string u_name)
+        public static List<Order> UserData( )
+            {
+                return user_info.Find(new BsonDocument()).ToList();
+            }
+        #endregion
+
+        #region
+        /// <summary>
+        /// to check if user already exists in the database
+        /// </summary>
+        public static bool UserExists(string uname)
         {
-            var query = Query<Order>.EQ(u => u.U, u_name);
-            return user_info.FindOne(query);
+            var recs = UserData();
+            foreach (var rec in recs)
+            {
+                if (rec.O_username.Equals(uname))
+                {
+                     // Debug.Log(rec.O_username);
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
+
+        public static string GetPassword(string uname)
+        {
+            var recs = UserData();
+            foreach (var rec in recs)
+            {
+                if (rec.O_username.Equals(uname))
+                {
+                    return rec.O_password;
+                } 
+            }
+            return null;
+        }
 
     }
 
