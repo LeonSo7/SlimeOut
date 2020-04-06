@@ -13,14 +13,28 @@ public class BattleManager : MonoBehaviour
     public Button attack;
     public Button skill;
 
-    public Animator petAnimator;
-    public Animator oppAnimator;
+    public Animator slimeRAnimator;
+    public Animator slimeGAnimator;
+    public Animator slimeBAnimator;
+
+    public Animator oppRAnimator;
+    public Animator oppGAnimator;
+    public Animator oppBAnimator;
+
     public Animator skillRAnimator;
     public Animator skillGAnimator;
     public Animator skillBAnimator;
 
-    //private Slime Slime = Slime.instance;
-    //private Inventory Inventory = Inventory.instance;
+    public GameObject slimeR;
+    public GameObject slimeG;
+    public GameObject slimeB;
+    public GameObject oppR;
+    public GameObject oppG;
+    public GameObject oppB;
+
+    public static Slime Slime;
+    //private static Inventory Inventory = Inventory.instance;
+
 
     private int petHealth;
     private int oppHealth;
@@ -28,25 +42,39 @@ public class BattleManager : MonoBehaviour
     private int petDamage;
     private int petLevel;
     private int oppLevel;
-    private string petColor;
-    private string oppColor;
+    private int petColor;
+    private int oppColor;
 
     private Item[] reward;
     private int income;
     private int exp;
     // Start is called before the first frame update
+
     void Start()
     {
+        Slime = Slime.instance;
         var rnd = new System.Random();
         petHealth = 100;
         oppHealth = 100;
         oppDamage = 0;
         petDamage = 0;
-        //petLevel = Slime.instance.slimeLvl;
-        petLevel = 10;
-        //petColor = PlayerPrefs.GetString("_slimeColor");
-        oppLevel = petLevel + rnd.Next(-2, 2);
-        oppColor = ("Blue");
+        petLevel = Slime.slimeLvl;
+        //petLevel = 10;
+        petColor = Slime.colour;
+        //petColor = 0;
+        //petColor = 1;
+        //petColor = 2;
+        oppLevel = petLevel + rnd.Next(-2, 3);
+        oppColor = rnd.Next(0, 3);
+
+        if(petColor==0){triggerSlimeG();}
+        else if(petColor==1){triggerSlimeB();}
+        else if(petColor==2){triggerSlimeR();}
+
+        if(oppColor==0){triggerOppG();}
+        else if(oppColor==1){triggerOppB();}
+        else if(oppColor==2){triggerOppR();}
+
         StartCoroutine(UpdateState());
         playerTurn();
     }
@@ -78,7 +106,10 @@ public class BattleManager : MonoBehaviour
 
     void Attack()
     {
-        petAnimator.SetTrigger("Attack");
+        if(petColor==0){slimeGAnimator.SetTrigger("Attack");}
+        else if(petColor==1){slimeBAnimator.SetTrigger("Attack");}
+        else if(petColor==2){slimeRAnimator.SetTrigger("Attack");}
+
         petDamage = petLevel*3-oppLevel*1;
         oppDamage = 0;
         StartCoroutine(UpdateState());
@@ -87,10 +118,11 @@ public class BattleManager : MonoBehaviour
 
     void Skill()
     {
-        petAnimator.SetTrigger("Attack");
-        skillRAnimator.SetTrigger("Skill");
-        skillGAnimator.SetTrigger("Skill");
-        skillBAnimator.SetTrigger("Skill");
+
+        if(petColor==0){skillGAnimator.SetTrigger("Skill");slimeGAnimator.SetTrigger("Attack");}
+        else if(petColor==1){skillBAnimator.SetTrigger("Skill");slimeBAnimator.SetTrigger("Attack");}
+        else if(petColor==2){skillRAnimator.SetTrigger("Skill");slimeRAnimator.SetTrigger("Attack");}
+
         petDamage = petLevel*5-oppLevel*2;
         oppDamage = 0;
         StartCoroutine(UpdateState());
@@ -99,8 +131,11 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator oppAttack()
     {
+        if(oppColor==0){oppGAnimator.SetTrigger("oppAttack");}
+        else if(oppColor==1){oppBAnimator.SetTrigger("oppAttack");}
+        else if(oppColor==2){oppRAnimator.SetTrigger("oppAttack");}
+
         yield return new WaitForSeconds (1);
-        oppAnimator.SetTrigger("oppAttack");
         oppDamage = oppLevel*5-petLevel*3;
         petDamage = 0;
         StartCoroutine(UpdateState());
@@ -114,7 +149,7 @@ public class BattleManager : MonoBehaviour
         income = 3;
         exp = oppLevel*10;
         //SceneManager.LoadScene("BattleWinScene");
-        //checkout();
+        checkout();
     }
 
     void loseBattle()
@@ -122,14 +157,60 @@ public class BattleManager : MonoBehaviour
         income = 1;
         exp = oppLevel;
         //SceneManager.LoadScene("BattleLoseScene");
-        //checkout();
+        checkout();
     }
 
-    /*void checkout()
+    void checkout()
     {
-        Inventory.balance += income;
-        Slime.expLvl += exp;
-        foreach(Item i in reward)
-            Inventory.Add(i);
-    }*/
+        //Inventory.balance += income;
+        Slime.expLvl += 50*exp;
+        //foreach(Item i in reward)
+            //Inventory.Add(i);
+    }
+
+    void triggerSlimeG(){
+        slimeG.SetActive(true);
+
+
+        slimeB.SetActive(false);
+        slimeR.SetActive(false);
+    }
+
+    void triggerSlimeB(){
+        slimeB.SetActive(true);
+
+        slimeG.SetActive(false);
+        slimeR.SetActive(false);
+    }
+
+    void triggerSlimeR(){
+        slimeR.SetActive(true);
+
+
+        slimeB.SetActive(false);
+        slimeG.SetActive(false);
+    }
+
+    void triggerOppG(){
+        oppG.SetActive(true);
+
+
+        oppB.SetActive(false);
+        oppR.SetActive(false);
+    }
+
+    void triggerOppB(){
+        oppB.SetActive(true);
+
+        oppG.SetActive(false);
+        oppR.SetActive(false);
+    }
+
+    void triggerOppR(){
+        oppR.SetActive(true);
+
+
+        oppB.SetActive(false);
+        oppG.SetActive(false);
+    }
 }
