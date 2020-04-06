@@ -13,6 +13,8 @@ public class Slime : MonoBehaviour
     [SerializeField]
     private int _slimeLvl;
     [SerializeField]
+    private int _colour; //0G, 1B, 2R (Slime colour)
+    [SerializeField]
     private string _name;
 	private bool _serverTime;
 
@@ -49,6 +51,13 @@ public class Slime : MonoBehaviour
     }
 
     void updateState(){
+        // Check if slime colour is exists
+        if(! PlayerPrefs.HasKey("colour")){ // No colour
+            PlayerPrefs.SetInt("colour", 0); // Default colour
+        } else { // Name exists
+            _colour = PlayerPrefs.GetInt("colour");
+        }
+
     	if (PlayerPrefs.HasKey("_expLvl")){
     		_expLvl = PlayerPrefs.GetInt("_expLvl");
     	} else { // Default state - exp
@@ -179,6 +188,14 @@ public class Slime : MonoBehaviour
             _slimeLvl += 1;
             PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
         }
+    }
+
+    public int colour {
+        get{ return _colour; } // Accessor for colour
+        set{ // Mutator for colour
+            _colour = value;
+            PlayerPrefs.SetInt("colour", _colour);
+        } 
     }
 
 }
