@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         namePanel.SetActive(!namePanel.activeInHierarchy);
 
         if(active){
-            slime.GetComponent<Slime>().name = nameInput.GetComponent<InputField>().text; // Get new name
+            slime.name = nameInput.GetComponent<InputField>().text; // Get new name
             PlayerPrefs.SetString("name", slime.name); // Save name to PlayerPrefs
         }
     }

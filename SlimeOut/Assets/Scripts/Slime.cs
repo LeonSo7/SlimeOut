@@ -164,7 +164,7 @@ public class Slime : MonoBehaviour
         get{ return _name; } // Accessor for slime name
         set{ // Mutator for slime name
             _name = value;
-            PlayerPrefs.SetString("name", "Jerry");
+            PlayerPrefs.SetString("name", _name); // Save name to PlayerPrefs
         } 
     }
 
