@@ -67,11 +67,13 @@ public class Slime : MonoBehaviour
             setPlayerTime();
         }
 
-        TimeSpan timeDiff = getTimeDiff();
-        _hungerLvl  -= (int)(timeDiff.TotalHours * 4); // Subtract 4 from hunger every hour
-        if (_hungerLvl  < 0){
-            _hungerLvl = 0; // Set hunger level to 0 if falls below 0
-        }
+        InvokeRepeating("decreaseHunger", 30f, 30f);
+
+        // TimeSpan timeDiff = getTimeDiff();
+        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every hour
+        // if (_hungerLvl  < 0){
+        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        // }
 
 
         // Use server time if available, else use device time
@@ -82,8 +84,22 @@ public class Slime : MonoBehaviour
         }
     }
 
-    void updateServer(){
+    void decreaseHunger(){
+        // TimeSpan timeDiff = getTimeDiff();
+        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every minute
+        // if (_hungerLvl  < 0){
+        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        // }
 
+        _hungerLvl  -= (int)(2); // Subtract 1 from hunger every minute
+        if (_hungerLvl  < 0){
+            _hungerLvl = 0; // Set hunger level to 0 if falls below 0
+        }
+        PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
+    }
+
+    void updateServer(){
+        // If have server after
     }
 
     void updateDevice(){
@@ -111,29 +127,47 @@ public class Slime : MonoBehaviour
 
     public int expLvl {
     	get { return _expLvl; } // Accesor for exp level
-    	set { _expLvl = value; } // Mutator for exp level
+    	set { // Mutator for exp level
+            _expLvl = value;
+            PlayerPrefs.SetInt("_expLvl", _expLvl);
+        } 
     }
 
     public int hungerLvl {
     	get{ return _hungerLvl; } // Accessor for hunger level
-    	set{ _hungerLvl = value; } // Mutator for hunger level
+    	set{ // Mutator for hunger level
+            _hungerLvl = value;
+            PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
+        } 
     }
 
     public string name {
         get{ return _name; } // Accessor for slime name
-        set{ _name = value; } // Mutator for slime name
+        set{ // Mutator for slime name
+            _name = value;
+            PlayerPrefs.SetString("name", "Jerry");
+        } 
     }
 
     public int slimeLvl {
         get{ return _slimeLvl; } // Accessor for slime level
-        set{ _slimeLvl = value; } // Mutator for slime level
+        set{ // Mutator for slime level
+            _slimeLvl = value;
+            PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
+
+        } 
     }
 
     // Add exp to exp level
     public void updateExpLvl(int exp){
-        expLvl += exp;
-        if (expLvl >= 100){
-            slimeLvl += 1;
+        _expLvl += exp;
+
+        PlayerPrefs.SetInt("_expLvl", _expLvl);
+
+        if (_expLvl >= 100){
+            _expLvl = 0;
+            _slimeLvl += 1;
+            PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
         }
     }
 

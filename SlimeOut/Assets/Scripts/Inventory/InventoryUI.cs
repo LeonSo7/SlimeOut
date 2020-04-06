@@ -19,9 +19,6 @@ public class InventoryUI : MonoBehaviour
     void Start() {
         inventory = Inventory.instance;
         slots = itemHolder.GetComponentsInChildren<InventorySlot>();
-        inventory.Add(new Item(Item.ItemType.blue1));
-        inventory.Add(new Item(Item.ItemType.blue1));
-        inventory.Add(new Item(Item.ItemType.blue3));
         UpdateUI();
     }
     public void Select(Item i) {
@@ -33,14 +30,16 @@ public class InventoryUI : MonoBehaviour
             useWindow.GetComponentInChildren<Text>().text = "Select an item first!";
             return;
         }
-        if (inventory.Count(selectedItem) < 1) {
-            useWindow.GetComponentInChildren<Text>().text = "You don't have any of this item!";
-            return;
-        }
         inventory.Remove(selectedItem);
+        useWindow.GetComponentInChildren<Text>().text = "Consumed item!";
+        selectedItem = null;
         UpdateUI();
     }
     public void UpdateText() {
+        if (selectedItem == null) {
+            useWindow.GetComponentInChildren<Text>().text = "Select an item first!";
+            return;
+        }
         useWindow.GetComponentInChildren<Text>().text = "Item: " + selectedItem.GetDescription() + 
             "\nCost: " + selectedItem.GetCost() +
             "\nYour count: " + inventory.Count(selectedItem) +

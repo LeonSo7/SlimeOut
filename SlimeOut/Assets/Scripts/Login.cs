@@ -26,9 +26,9 @@ public class Login : MonoBehaviour
         bool UN = false;
         bool PW = false;
 
-        if(Username != "")
+        if (Username != "")
         {
-            if(Register.UserData(Username) != null)
+            if (Register.UserExists(Username))
             {
                 UN = true;
                 // Lines = System.IO.File.ReadAllLines(Username + ".txt");
@@ -43,16 +43,23 @@ public class Login : MonoBehaviour
             Debug.LogWarning("Username field empty");
         }
 
-        if(Password != "")
+        if (Password != "")
         {
-            if (Register.UserData(Username) != null)
+            if (Register.UserExists(Username))
             {
-                
+
                 int i = 1;
-                Lines = Register.UserData(Username).P;
+                if (Register.GetPassword(Username) != null)
+                {
+                    Lines = Register.GetPassword(Username);
+                }
+                else
+                {
+                    Debug.Log("Password null");
+                }
+
                 foreach (char c in Lines)
                 {
-                    
                     i++;
                     char Decrypted = (char)(c / i);
                     Decrypted_password += Decrypted.ToString();

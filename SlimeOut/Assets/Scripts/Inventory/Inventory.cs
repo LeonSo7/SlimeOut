@@ -4,24 +4,39 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-   public static Inventory instance { get; private set; }
+    public static Inventory instance { get; private set; }
 
-   private void Awake() {
-       instance = this;
-   }
+    private void Awake() {
+        if (instance == null) {
+            DontDestroyOnLoad (gameObject);
+            instance = this;
+        } 
+        else if (instance != this) {
+            Destroy(gameObject);
+        }
+    }
 
     public List<Item> items = new List<Item>();
     public int balance = 0;
-    public void Add (Item item) {
+    public bool Add (Item item) {
+        if (items.Count > 19) {
+            return false;
+        }
         items.Add(item);
+        return true;
     }
     public void Remove (Item item) {
-        items.Remove(item);
+        foreach (var i in items) {
+            if (item.type == i.type) {
+                items.Remove(i);
+                return;
+            }
+        }
     }
     public int Count (Item item) {
         int count = 0;
         foreach (var i in items) {
-            if (i == item) count++;
+            if (item.type == i.type) count++;
         }
         return count;
     }
