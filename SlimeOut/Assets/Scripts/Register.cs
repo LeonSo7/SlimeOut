@@ -66,7 +66,7 @@ namespace universal
             db = client.GetDatabase("gameDB");
             user_info = db.GetCollection<Order>("user_info");
             //
-            
+
         }
 
         public void InsertDocument()
@@ -90,6 +90,27 @@ namespace universal
             // Debug.Log("It seems that its adding data in the database");
         }
 
+        // public void Save(string user, string email, string password, string slimeN, string slimeColor, string balance, string health, int slimeL, int hungerL, int expL)
+        // {
+        //     var info = new Order
+        //     {
+        //         O_username = user,
+        //         O_email = email,
+        //         O_password = password,
+        //         O_slimename = slimeN,
+        //         O_slime_color = slimeColor,
+        //         O_balance = balance,
+        //         O_health = health,
+        //         O_slime_level = slimeL,
+        //         O_hunger_level = hungerL,
+        //         O_exp_level = expL
+        //     };
+        //     user_info.InsertOne(info);
+        //     Debug.Log("seems like its working");
+        //
+        //     // Debug.Log("It seems that its adding data in the database");
+        // }
+
         public void Register_button()
         {
             bool UN = false;
@@ -99,7 +120,7 @@ namespace universal
 
             if (Username != "")
             {
-        
+
                 if (!UserExists(Username))
                 {
                     UN = true;
@@ -331,7 +352,7 @@ namespace universal
                 if (rec.O_username.Equals(uname))
                 {
                     return rec.O_password;
-                } 
+                }
             }
             return null;
         }
@@ -339,6 +360,3 @@ namespace universal
     }
 
 }
-
-
-
