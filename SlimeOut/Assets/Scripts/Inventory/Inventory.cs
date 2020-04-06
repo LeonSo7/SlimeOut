@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using MongoDB.Driver;
+using MongoDB.Bson;
+
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance { get; private set; }

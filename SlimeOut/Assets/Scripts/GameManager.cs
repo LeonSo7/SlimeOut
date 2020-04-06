@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject nameInput;
     public GameObject nameTxt;
 
-	public GameObject slime;
+	public static Slime slime;
 
     /* COLOURED SLIMES */
     public GameObject slimeR;
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slime = Slime.instance;
         // Check if slime colour is exists
         if(! PlayerPrefs.HasKey("colour")){ // No colour
             PlayerPrefs.SetInt("colour", 0); // Default colour
@@ -43,10 +44,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        expTxt.GetComponent<Text>().text = "" + slime.GetComponent<Slime>().expLvl;
-        hungerTxt.GetComponent<Text>().text = "" + slime.GetComponent<Slime>().hungerLvl;
-        lvlTxt.GetComponent<Text>().text = "" + slime.GetComponent<Slime>().slimeLvl;
-        nameTxt.GetComponent<Text>().text = slime.GetComponent<Slime>().name;
+        expTxt.GetComponent<Text>().text = "" + slime.expLvl;
+        hungerTxt.GetComponent<Text>().text = "" + slime.hungerLvl;
+        lvlTxt.GetComponent<Text>().text = "" + slime.slimeLvl;
+        nameTxt.GetComponent<Text>().text = slime.name;
 
         if (_colour == 0){
             triggerSlimeG();
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         if(active){
             slime.GetComponent<Slime>().name = nameInput.GetComponent<InputField>().text; // Get new name
-            PlayerPrefs.SetString("name",slime.GetComponent<Slime>().name); // Save name to PlayerPrefs
+            PlayerPrefs.SetString("name", slime.name); // Save name to PlayerPrefs
         }
     }
 

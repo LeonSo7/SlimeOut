@@ -92,4 +92,21 @@ public class Item
             case ItemType.xp3:       return "exp food level 3";
         }
     }
+    public string ToString() {
+        switch(type) {
+            default:
+            case ItemType.blue1:    return "blue1";
+            case ItemType.blue2:    return "blue2";
+            case ItemType.blue3:    return "blue3";
+            case ItemType.red1:     return "red1";
+            case ItemType.red2:     return "red2";
+            case ItemType.red3:     return "red3";
+            case ItemType.green1:   return "green1";
+            case ItemType.green2:   return "green2";
+            case ItemType.green3:   return "green3";
+            case ItemType.xp1:       return "exp1";
+            case ItemType.xp2:       return "exp2";
+            case ItemType.xp3:       return "exp3";
+        }
+    }
 }
