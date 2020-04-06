@@ -15,7 +15,9 @@ public class BattleManager : MonoBehaviour
 
     public Animator petAnimator;
     public Animator oppAnimator;
-    public Animator skillAnimator;
+    public Animator skillRAnimator;
+    public Animator skillGAnimator;
+    public Animator skillBAnimator;
 
     //private Slime Slime = Slime.instance;
     //private Inventory Inventory = Inventory.instance;
@@ -85,8 +87,10 @@ public class BattleManager : MonoBehaviour
 
     void Skill()
     {
-        petAnimator.SetTrigger("Skill");
-        skillAnimator.SetTrigger("Skill");
+        petAnimator.SetTrigger("Attack");
+        skillRAnimator.SetTrigger("Skill");
+        skillGAnimator.SetTrigger("Skill");
+        skillBAnimator.SetTrigger("Skill");
         petDamage = petLevel*5-oppLevel*2;
         oppDamage = 0;
         StartCoroutine(UpdateState());
