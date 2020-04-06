@@ -90,20 +90,7 @@ namespace universal
 
             // Debug.Log("It seems that its adding data in the database");
         }
-        public static void SaveInventory() {
-            Inventory inv = Inventory.instance;
-            string[] items = new string[inv.items.Count];
-
-            int j = 0;
-            foreach(var i in inv.items) items[j++] = i.ToString();
-
-            var info = new InvSchema
-            {
-                O_username = Username,
-                O_items = items,
-                O_balance = inv.balance,
-            };
-        }
+        
 
         public void Register_button()
         {
