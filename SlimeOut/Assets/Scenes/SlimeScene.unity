@@ -1656,6 +1656,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25bdd21bbfc32d458749993a7af17bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Slimename: 
+  col: 
+  name: 
+  lvl: 0
+  exp: 0
+  hunger: 0
+  balance: 0
+  items: []
 --- !u!4 &691818430
 Transform:
   m_ObjectHideFlags: 0
@@ -2584,8 +2592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6, y: -417.5}
-  m_SizeDelta: {x: 477.5, y: 114.2}
+  m_AnchoredPosition: {x: 2.6, y: -397.57}
+  m_SizeDelta: {x: 477.5, y: 74.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948683317
 MonoBehaviour:
