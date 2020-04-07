@@ -21,24 +21,24 @@ public class Slime : MonoBehaviour
    public static Slime instance { get; private set; }
 
    private void Awake() {
-       if (instance == null) {
+        if (instance == null) {
             DontDestroyOnLoad (gameObject);
             instance = this;
         } 
         else if (instance != this) {
             Destroy(gameObject);
         }
+        DataBase db = DataBase.instance;
+        hungerLvl = db.hunger;
+        expLvl = db.exp;
+        slimeLvl = db.lvl;
+        colour = Int32.Parse(db.col);
+        updateState(); 
    }
    
     void Start()
     {
-        updateState(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        
     }
 
     void updateState(){
