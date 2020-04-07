@@ -26,6 +26,8 @@ public class Slime : MonoBehaviour
             instance = this;
             DataBase db = DataBase.instance;
             hungerLvl = db.hunger;
+            // Uncomment to force and set hunger
+            // hungerLvl = 2;
             expLvl = db.exp;
             slimeLvl = db.lvl;
             name = db.name;
