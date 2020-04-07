@@ -55,11 +55,9 @@ namespace universal
         // private string form;
         private bool email_valid = false;
 
-        private string[] Characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                                    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-                                    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "-" };
-
-
+        private string[] Characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",                                        "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                                        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",                                            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+                                       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "-" };
 
 
 
@@ -70,9 +68,7 @@ namespace universal
         void Start()
         {
             PopulateList();
-
-            // client = new MongoClient(new MongoUrl("mongodb://:Atal123@Atal@cluster0-1i8se.mongodb.net/test?retryWrites=false&w=majority"));
-            client = new MongoClient("mongodb+srv://tiwarimkt:Atal123Atal@cluster0-1i8se.mongodb.net/gameDB?retryWrites=true&w=majority");
+            client = new MongoClient("mongodb+srv://tiwarimkt:Atal123Atal@cluster0-1i8se.mongodb.net/gameDB?                                            retryWrites=true&w=majority");
             db = client.GetDatabase("gameDB");
             user_info = db.GetCollection<Order>("user_info");
             //
@@ -121,7 +117,10 @@ namespace universal
             Debug.Log("seems like its working");
         }
         
-
+        /// <summary>
+        /// Acts as event handler when the register button is clicked.
+        /// Checks if all fields are filled and if so, pushes user info to databse
+        /// </summary>
         public void Register_button()
         {
             bool UN = false;
@@ -305,6 +304,9 @@ namespace universal
             Slimename = slimename.GetComponent<InputField>().text;
         }
 
+        /// <summary>
+        /// checks if the email is in the right format.
+        /// </summary>
         void email_validation()
         {
             bool SW = false;
@@ -335,6 +337,9 @@ namespace universal
             }
         }
 
+        /// <summary>
+        /// populates the dropdown with the slime colors
+        /// </summary>
         void PopulateList()
         {
             slime_color.AddOptions(colors);
@@ -374,6 +379,9 @@ namespace universal
         }
         #endregion
 
+        /// <summary>
+        /// Returns the password of a username from the database.
+        /// </summary>
         public static string GetPassword(string uname)
         {
             var recs = UserData();
