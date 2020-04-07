@@ -84,7 +84,7 @@ public class Slime : MonoBehaviour
             _slimeLvl = PlayerPrefs.GetInt("_slimeLvl");
         } else { // Default state - slime level
             _slimeLvl = 1;
-            PlayerPrefs.SetInt("_slimeLvl", _expLvl);
+            PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
         }
 
         InvokeRepeating("decreaseHunger", 30f, 30f);
