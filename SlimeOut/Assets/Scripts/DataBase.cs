@@ -68,10 +68,7 @@ public class DataBase : MonoBehaviour
     public void SaveDocument() {
         var info = new Order
         {
-            O_username = Username,
-            O_email = Email,
-            O_password = Password,
-            O_slimename = Slimename,
+            
             O_slime_color = col,
             O_balance = Inventory.instance.balance,
             O_health = 100,
@@ -81,7 +78,14 @@ public class DataBase : MonoBehaviour
             O_item_strings = Inventory.instance.ToStringArray(),
         };
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
-        user_info.FindOneAndUpdate(filter, info);
+        var update = Builders<Order>.Update.Set("O_slimename", Slimename)
+            .Set("O_slime_color", col)
+            .Set("O_balance", Inventory.instance.balance)
+            .Set("O_slime_level", Slime.instance.slimeLvl)
+            .Set("O_hunger_level", Slime.instance.hungerLvl)
+            .Set("O_exp_level", Slime.instance.expLvl)
+            .Set("O_item_strings", Inventory.instance.ToStringArray());
+        user_info.FindOneAndUpdate(filter, update);
         Debug.Log("Doc updated?");
     }
     public void Register(string uname, string em, string pword, string sname, string scol)
