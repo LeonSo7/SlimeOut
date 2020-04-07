@@ -60,7 +60,8 @@ public class BattleManager : MonoBehaviour
         //petColor = 0;
         //petColor = 1;
         //petColor = 2;
-        oppLevel = petLevel + rnd.Next(-1, 2);
+        oppLevel = petLevel + rnd.Next(-2, 2);
+        if (oppLevel < 1){oppLevel = 1;}
         oppColor = rnd.Next(0, 3);
 
         if(petColor==0){triggerSlimeG();}
