@@ -14,15 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopScene.unity
     guid: 6315f96e89aa5054ea8dc8d2009e0d31
-  - enabled: 1
-    path: Assets/Scenes/BattleLoadingScene.unity
-    guid: bb523231840bd7c439deecc16c6553c3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/BattleLoseScene.unity
     guid: 01fed8f2d7792494fa7e9575a8b65069
-  - enabled: 1
-    path: Assets/Scenes/BattleSelectionScene.unity
-    guid: f760e0c337be78d46ba55dd08a02b12e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/BattleWinScene.unity
     guid: 608688170b6f0ad42b4e6060f0a273f4
@@ -38,7 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LogoutScene.unity
     guid: 51476e1516ad4fa45849469c9d822c5e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: c4ac24b2df172c548834a148028f3e4f
   - enabled: 1

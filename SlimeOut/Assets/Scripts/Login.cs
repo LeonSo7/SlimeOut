@@ -88,6 +88,7 @@ public class Login : MonoBehaviour
             username.GetComponent<InputField>().text = ""; 
             password.GetComponent<InputField>().text = ""; 
             print("Login successful");
+            DataBase.instance.LoadUserData(Username);
             SceneManager.LoadScene("SlimeScene");
         }
     }

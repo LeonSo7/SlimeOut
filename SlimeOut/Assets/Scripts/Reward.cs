@@ -26,11 +26,11 @@ public class Reward : MonoBehaviour
         oppColor = BattleManager.oppColor;
         oppLevel = BattleManager.oppLevel;
         Inventory = Inventory.instance;
-        Update();
+        UpdateState();
     }
 
     // Update is called once per frame
-    void Update()
+    void UpdateState()
     {
         if (scene.name == "BattleWinScene")
             winBattle();
@@ -78,13 +78,14 @@ public class Reward : MonoBehaviour
             reward.Add(new Item(Item.ItemType.red1));
         }
 
-        income = 3;
-        exp = oppLevel*50;
+        income = 10;
+        exp = oppLevel*10;
         checkout();
     }
 
     void loseBattle()
     {
+        reward = new List<Item>();
         if (oppColor == 0){
             reward.Add(new Item(Item.ItemType.green1));
         }
@@ -97,8 +98,8 @@ public class Reward : MonoBehaviour
             reward.Add(new Item(Item.ItemType.red1));
         }
 
-        income = 1;
-        exp = oppLevel*10;
+        income = 5;
+        exp = oppLevel*5;
         checkout();
     }
 

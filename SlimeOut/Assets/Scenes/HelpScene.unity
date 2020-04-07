@@ -2874,10 +2874,10 @@ MonoBehaviour:
     opponent will be generated with 100 health points\r\n3.\tYou can pick between
     attack, skill and escape. \r\n4.\tAn Attack Causes your slime to hit the opponent
     and make their health go down\r\n5.\tSkill will attack the opponent with a special
-    skill based on your slimes color and deal more damage\r\n6.\tEscape will bring
-    you back to the main slime screen\r\n7.\tIf you bring your opponents health down
-    to 0 you will receive a reward of items coins and experience\r\n8.\tIf your experience
-    reached 100 you will level\r\n"
+    skill based on your slimes color and deal more damage\r\n6.\tEscape will make
+    you lose battle\r\n7.\tIf you bring your opponents health down to 0 you will receive
+    a reward of items coins and experience\r\n8.\tIf your experience reached 100 you
+    will level\r\n"
 --- !u!222 &1394093811
 CanvasRenderer:
   m_ObjectHideFlags: 0

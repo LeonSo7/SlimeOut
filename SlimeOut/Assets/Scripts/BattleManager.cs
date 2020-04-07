@@ -60,7 +60,7 @@ public class BattleManager : MonoBehaviour
         //petColor = 0;
         //petColor = 1;
         //petColor = 2;
-        oppLevel = petLevel + rnd.Next(-2, 3);
+        oppLevel = petLevel + rnd.Next(-1, 2);
         oppColor = rnd.Next(0, 3);
 
         if(petColor==0){triggerSlimeG();}
@@ -106,7 +106,7 @@ public class BattleManager : MonoBehaviour
         else if(petColor==1){slimeBAnimator.SetTrigger("Attack");}
         else if(petColor==2){slimeRAnimator.SetTrigger("Attack");}
 
-        petDamage = petLevel*3-oppLevel*1;
+        petDamage = petLevel*8-oppLevel*3;
         oppDamage = 0;
         StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
@@ -119,7 +119,7 @@ public class BattleManager : MonoBehaviour
         else if(petColor==1){skillBAnimator.SetTrigger("Skill");slimeBAnimator.SetTrigger("Attack");}
         else if(petColor==2){skillRAnimator.SetTrigger("Skill");slimeRAnimator.SetTrigger("Attack");}
 
-        petDamage = petLevel*5-oppLevel*2;
+        petDamage = petLevel*10-oppLevel*3;
         oppDamage = 0;
         StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
@@ -127,12 +127,11 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator oppAttack()
     {
+        yield return new WaitForSeconds (1);
         if(oppColor==0){oppGAnimator.SetTrigger("oppAttack");}
         else if(oppColor==1){oppBAnimator.SetTrigger("oppAttack");}
         else if(oppColor==2){oppRAnimator.SetTrigger("oppAttack");}
-
-        yield return new WaitForSeconds (1);
-        oppDamage = oppLevel*3-petLevel*1;
+        oppDamage = oppLevel*9-petLevel*3;
         petDamage = 0;
         StartCoroutine(UpdateState());
         yield return new WaitForSeconds (1);
