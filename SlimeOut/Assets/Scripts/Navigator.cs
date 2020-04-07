@@ -7,22 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Navigator : MonoBehaviour
 {
-    public Button BattleButton;
-    public Button CancelButton;
-    public Button PVEButton;
-    public Button PVPButton;
-    public Button EscapeButton;
-    public Button ReturnButton;
-
-    public void Start()
-    {
-        BattleButton.onClick.AddListener(BattleSelectionScene);
-        PVEButton.onClick.AddListener(BattleLoadingScene);
-        PVPButton.onClick.AddListener(BattleLoadingScene);
-        EscapeButton.onClick.AddListener(BattleLostScene);
-        ReturnButton.onClick.AddListener(SlimeScene);
-        CancelButton.onClick.AddListener(SlimeScene);
-    }
     public void SlimeScene() {
 		SceneManager.LoadScene("SlimeScene");
 	}
