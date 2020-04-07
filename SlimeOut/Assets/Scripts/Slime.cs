@@ -24,24 +24,25 @@ public class Slime : MonoBehaviour
         if (instance == null) {
             DontDestroyOnLoad (gameObject);
             instance = this;
+            DataBase db = DataBase.instance;
+            hungerLvl = db.hunger;
+            expLvl = db.exp;
+            slimeLvl = db.lvl;
+            name = db.name;
+            Inventory.instance.balance = db.balance;
+            Inventory.instance.setFromStringArray(db.items);
+            switch (db.col) {
+                default:
+                case "Green": colour = 0; break;
+                case "Blue": colour = 1; break;
+                case "Red": colour = 2; break;
+            }
+            updateState(); 
         } 
         else if (instance != this) {
             Destroy(gameObject);
         }
-        DataBase db = DataBase.instance;
-        hungerLvl = db.hunger;
-        expLvl = db.exp;
-        slimeLvl = db.lvl;
-        name = db.name;
-        Inventory.instance.balance = db.balance;
-        Inventory.instance.setFromStringArray(db.items);
-        switch (db.col) {
-            default:
-            case "Green": colour = 0; break;
-            case "Blue": colour = 1; break;
-            case "Red": colour = 2; break;
-        }
-        updateState(); 
+        
    }
 
     void updateState(){
