@@ -54,7 +54,7 @@ public class DataBase : MonoBehaviour
             O_balance = 50,
             O_health = 100,
             O_slime_level = 0,
-            O_hunger_level = 0,
+            O_hunger_level = 100,
             O_exp_level = 0,
             O_item_strings = new string[0],
         };
