@@ -32,6 +32,7 @@ public class Slime : MonoBehaviour
         hungerLvl = db.hunger;
         expLvl = db.exp;
         slimeLvl = db.lvl;
+        name = db.name;
         switch (db.col) {
             default:
             case "Green": colour = 0; break;
@@ -40,11 +41,6 @@ public class Slime : MonoBehaviour
         }
         updateState(); 
    }
-   
-    void Start()
-    {
-        
-    }
 
     void updateState(){
         // Check if slime name exists

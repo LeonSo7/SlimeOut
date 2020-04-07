@@ -16,6 +16,7 @@ public class DataBase : MonoBehaviour
     private string Password;
     public string Slimename;
     public string col;
+    public string name;
     public int lvl;
     public int exp;
     public int hunger;
@@ -132,6 +133,7 @@ public class DataBase : MonoBehaviour
                 hunger = rec.O_hunger_level;
                 balance = rec.O_balance;
                 items = rec.O_item_strings;
+                name = rec.O_slimename;
             }
         }
     }
