@@ -86,7 +86,7 @@ namespace universal
                 O_slime_color = Slime_color,
                 O_balance = 1000,
                 O_health = 100,
-                O_slime_level = 0,
+                O_slime_level = 1,
                 O_hunger_level = 0,
                 O_exp_level = 0,
                 O_item_strings = new string[0],
