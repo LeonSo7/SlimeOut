@@ -571,7 +571,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &169841736
 GameObject:
@@ -975,12 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9bcbafee358c4fa402495b92a6646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BattleButton: {fileID: 0}
-  CancelButton: {fileID: 0}
-  PVEButton: {fileID: 0}
-  PVPButton: {fileID: 0}
-  EscapeButton: {fileID: 0}
-  ReturnButton: {fileID: 0}
 --- !u!4 &230647376
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +987,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &293775651
 GameObject:
@@ -1750,7 +1744,7 @@ RectTransform:
   - {fileID: 61344662}
   - {fileID: 2138014079}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2983,61 +2977,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1014257306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1014257307}
-  - component: {fileID: 1014257308}
-  m_Layer: 0
-  m_Name: ItemAssets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1014257307
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014257306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 469.7586, y: 341.88513, z: -6.125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1014257308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014257306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6454cb6177e1e4bb05d83dea6b1af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blue1Sprite: {fileID: 21300000, guid: 9e204dcc987c5f04cbc8af09b587a6e4, type: 3}
-  blue2Sprite: {fileID: 21300000, guid: 9e204dcc987c5f04cbc8af09b587a6e4, type: 3}
-  blue3Sprite: {fileID: 21300000, guid: da42403f8d627c849b9c2ac6c713c457, type: 3}
-  red1Sprite: {fileID: 21300000, guid: face2091c5faf2940a17104dafa8f5a2, type: 3}
-  red2Sprite: {fileID: 21300000, guid: face2091c5faf2940a17104dafa8f5a2, type: 3}
-  red3Sprite: {fileID: 21300000, guid: 0fc625a96b243904d843afa4c5de68ab, type: 3}
-  green1Sprite: {fileID: 21300000, guid: d042166627630fe4380143cd28577d26, type: 3}
-  green2Sprite: {fileID: 21300000, guid: d042166627630fe4380143cd28577d26, type: 3}
-  green3Sprite: {fileID: 21300000, guid: d042166627630fe4380143cd28577d26, type: 3}
-  xp1Sprite: {fileID: 0}
-  xp2Sprite: {fileID: 0}
-  xp3Sprite: {fileID: 0}
 --- !u!1 &1120829148
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,18 +5714,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6454cb6177e1e4bb05d83dea6b1af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blue1Sprite: {fileID: 21300000, guid: 9e204dcc987c5f04cbc8af09b587a6e4, type: 3}
-  blue2Sprite: {fileID: 21300000, guid: d4bad65111d60b646a5584e7c91213f6, type: 3}
-  blue3Sprite: {fileID: 21300000, guid: da42403f8d627c849b9c2ac6c713c457, type: 3}
-  red1Sprite: {fileID: 21300000, guid: face2091c5faf2940a17104dafa8f5a2, type: 3}
-  red2Sprite: {fileID: 21300000, guid: fffa1f3656aad8d4692c07e22eb3fdd7, type: 3}
-  red3Sprite: {fileID: 21300000, guid: 0fc625a96b243904d843afa4c5de68ab, type: 3}
-  green1Sprite: {fileID: 21300000, guid: d042166627630fe4380143cd28577d26, type: 3}
-  green2Sprite: {fileID: 21300000, guid: fdd221ac19dd78e49ad551f2b34285cd, type: 3}
-  green3Sprite: {fileID: 21300000, guid: a3e51764757d91c4b8f364f42574239e, type: 3}
+  blue1Sprite: {fileID: 21300000, guid: 445af21e7b599f74bb0061ee46dcb536, type: 3}
+  blue2Sprite: {fileID: 21300000, guid: 6ff37df8ea968b449bb6478975745590, type: 3}
+  blue3Sprite: {fileID: 21300000, guid: b8bc77514c8f6ed4ca88c710f7662ecd, type: 3}
+  red1Sprite: {fileID: 21300000, guid: 75042d8e59ee5e149abad952fb920c0f, type: 3}
+  red2Sprite: {fileID: 21300000, guid: 28c84f1364523fc489ae24d7008783c4, type: 3}
+  red3Sprite: {fileID: 21300000, guid: 221b7066b147b5d4290a66bade2156ef, type: 3}
+  green1Sprite: {fileID: 21300000, guid: ba413433b3de5014a9f5767e51e504d9, type: 3}
+  green2Sprite: {fileID: 21300000, guid: 05fdf53d8f1eb1b4ba5a1b893fd84861, type: 3}
+  green3Sprite: {fileID: 21300000, guid: 093a95ce80186f8439b5211141d6500a, type: 3}
   xp1Sprite: {fileID: 21300000, guid: 6457cb6ea949e7c48a0558d7341b3f4f, type: 3}
-  xp2Sprite: {fileID: 21300000, guid: e067e574058a3774cb38713fcc1f9e5d, type: 3}
-  xp3Sprite: {fileID: 21300000, guid: 70f37774ab88ef149a7632ee92397e6b, type: 3}
+  xp2Sprite: {fileID: 21300000, guid: 70f37774ab88ef149a7632ee92397e6b, type: 3}
+  xp3Sprite: {fileID: 21300000, guid: ea4d82f93da02e74392b13575d672dc4, type: 3}
 --- !u!4 &2056077222
 Transform:
   m_ObjectHideFlags: 0
@@ -5796,10 +5735,10 @@ Transform:
   m_GameObject: {fileID: 2056077220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 469.7586, y: 341.88513, z: -6.125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2056097677
 GameObject:
