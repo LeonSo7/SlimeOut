@@ -37,8 +37,6 @@ public class BattleManager : MonoBehaviour
 
     private int petHealth;
     private int oppHealth;
-    private int oppDamage;
-    private int petDamage;
     private int petLevel;
     public static int oppLevel;
     private int petColor;
@@ -52,8 +50,6 @@ public class BattleManager : MonoBehaviour
         var rnd = new System.Random();
         petHealth = 100;
         oppHealth = 100;
-        oppDamage = 0;
-        petDamage = 0;
         petLevel = Slime.slimeLvl;
         //petLevel = 10;
         petColor = Slime.colour;
@@ -87,8 +83,6 @@ public class BattleManager : MonoBehaviour
         {
             loseBattle();
         }
-        petHealth -= oppDamage;
-        oppHealth -= petDamage;
         yield return new WaitForSeconds (1);
         petH.GetComponent<Text>().text = petHealth.ToString();
         oppH.GetComponent<Text>().text = oppHealth.ToString();
@@ -107,8 +101,7 @@ public class BattleManager : MonoBehaviour
         else if(petColor==1){slimeBAnimator.SetTrigger("Attack");}
         else if(petColor==2){slimeRAnimator.SetTrigger("Attack");}
 
-        petDamage = petLevel*8-oppLevel*3;
-        oppDamage = 0;
+        oppHealth -= petLevel*8-oppLevel*3;
         StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
     }
@@ -120,8 +113,7 @@ public class BattleManager : MonoBehaviour
         else if(petColor==1){skillBAnimator.SetTrigger("Skill");slimeBAnimator.SetTrigger("Attack");}
         else if(petColor==2){skillRAnimator.SetTrigger("Skill");slimeRAnimator.SetTrigger("Attack");}
 
-        petDamage = petLevel*10-oppLevel*3;
-        oppDamage = 0;
+        oppHealth -= petLevel*10-oppLevel*3;
         StartCoroutine(UpdateState());
         StartCoroutine(oppAttack());
     }
@@ -132,8 +124,7 @@ public class BattleManager : MonoBehaviour
         if(oppColor==0){oppGAnimator.SetTrigger("oppAttack");}
         else if(oppColor==1){oppBAnimator.SetTrigger("oppAttack");}
         else if(oppColor==2){oppRAnimator.SetTrigger("oppAttack");}
-        oppDamage = oppLevel*9-petLevel*3;
-        petDamage = 0;
+        petHealth -= oppLevel*9-petLevel*3;
         StartCoroutine(UpdateState());
         yield return new WaitForSeconds (1);
         playerTurn();
