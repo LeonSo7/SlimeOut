@@ -38,11 +38,9 @@ namespace universal
         // private string form;
         private bool email_valid = false;
 
-        private string[] Characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                                    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-                                    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "-" };
-
-
+        private string[] Characters = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",                                        "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                                        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",                                            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+                                       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_", "-" };
 
 
 
@@ -60,6 +58,8 @@ namespace universal
             bool EM = false;
             bool PW = false;
             bool RPW = false;
+            bool SN = false;
+            bool SC = false;
 
             if (Username != "")
             {
@@ -141,7 +141,25 @@ namespace universal
                 Debug.LogWarning("Re-type password field is empty");
             }
 
-            if (UN == true && EM == true && RPW == true && PW == true)
+            if(Slimename != "")
+            {
+                SN = true;
+            }
+            else
+            {
+                Debug.Log("Slime name field is empty");
+            }
+
+            if (Slime_color != null && Slime_color != colors[0])
+            {
+                SC = true;
+            }
+            else
+            {
+                Debug.Log("Slime color not chosen");
+            }
+
+            if (UN && EM && RPW && PW && SN && SC)
             {
                 DataBase.instance.Register(Username, Email, Password, Slimename, Slime_color);
             }
@@ -190,6 +208,9 @@ namespace universal
             Slimename = slimename.GetComponent<InputField>().text;
         }
 
+        /// <summary>
+        /// checks if the email is in the right format.
+        /// </summary>
         void email_validation()
         {
             bool SW = false;
@@ -220,6 +241,9 @@ namespace universal
             }
         }
 
+        /// <summary>
+        /// populates the dropdown with the slime colors
+        /// </summary>
         void PopulateList()
         {
             slime_color.AddOptions(colors);

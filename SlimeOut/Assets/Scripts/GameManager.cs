@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject revivePanel;
 
 	public static Slime slime;
+    public static Inventory inventory;
 
     /* COLOURED SLIMES */
     public GameObject slimeR;
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         slime = Slime.instance;
-
+        inventory = Inventory.instance;
     }
 
     // Update is called once per frame
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour
             slime.hungerLvl = 100;
             slime.expLvl = 0;
             slime.slimeLvl = 1;
+            inventory.OnDeath();
         }
     }
 
