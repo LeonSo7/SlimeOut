@@ -16,7 +16,7 @@ public class Slime : MonoBehaviour
     private int _colour; //0G, 1B, 2R (Slime colour)
     [SerializeField]
     private string _name;
-	private bool _serverTime;
+	// private bool _serverTime;
 
    public static Slime instance { get; private set; }
 
@@ -99,14 +99,14 @@ public class Slime : MonoBehaviour
         PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     }
 
-    TimeSpan getTimeDiff(){
-        if (_serverTime){
-            return new TimeSpan();
-        } else {
-            return DateTime.Now - Convert.ToDateTime(PlayerPrefs.GetString("playerTime"));
-        }
+    // TimeSpan getTimeDiff(){
+    //     if (_serverTime){
+    //         return new TimeSpan();
+    //     } else {
+    //         return DateTime.Now - Convert.ToDateTime(PlayerPrefs.GetString("playerTime"));
+    //     }
 
-    }
+    // }
 
     public int expLvl {
     	get { return _expLvl; } // Accesor for exp level
