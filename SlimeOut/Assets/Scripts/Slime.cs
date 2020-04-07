@@ -44,17 +44,23 @@ public class Slime : MonoBehaviour
     void updateState(){
         // Check if slime name exists
         if(! PlayerPrefs.HasKey("name")){ // No name
-            PlayerPrefs.SetString("name", "Jerry"); // Default Name
+            _name = "Jerry";
+            PlayerPrefs.SetString("name", _name); // Default Name
         } else { // Name exists
             _name = PlayerPrefs.GetString("name");
         }
 
         // Check if slime colour exists
         if(! PlayerPrefs.HasKey("colour")){ // No colour
-            PlayerPrefs.SetInt("colour", 0); // Default colour
+            _colour = 0;
+            PlayerPrefs.SetInt("colour", _colour); // Default colour
         } else { // Name exists
             _colour = PlayerPrefs.GetInt("colour");
         }
+
+        // For testing - set colour
+        // _colour = 0;
+        // PlayerPrefs.SetInt("colour", _colour);
 
     	if (PlayerPrefs.HasKey("_expLvl")){
     		_expLvl = PlayerPrefs.GetInt("_expLvl");
@@ -70,6 +76,10 @@ public class Slime : MonoBehaviour
     		PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     	}
 
+        // For testing - set hunger
+        // _hungerLvl = 2;
+        //     PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
+
         if (PlayerPrefs.HasKey("_slimeLvl")){
             _slimeLvl = PlayerPrefs.GetInt("_slimeLvl");
         } else { // Default state - slime level
@@ -77,28 +87,10 @@ public class Slime : MonoBehaviour
             PlayerPrefs.SetInt("_slimeLvl", _expLvl);
         }
 
-        // if (!PlayerPrefs.HasKey("playerTime")){
-        //     setPlayerTime();
-        // }
-
         InvokeRepeating("decreaseHunger", 30f, 30f);
-
-     //    // Use server time if available, else use device time
-    	// if(_serverTime){
-    	// 	updateServer();
-    	// } else {
-     //        InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
-     //    }
-
-        InvokeRepeating("updateDevice", 0f, 30f); // Update time from device every 30s
     }
 
     void decreaseHunger(){
-        // TimeSpan timeDiff = getTimeDiff();
-        // _hungerLvl  -= (int)(timeDiff.TotalMinutes * 4); // Subtract 4 from hunger every minute
-        // if (_hungerLvl  < 0){
-        //     _hungerLvl = 0; // Set hunger level to 0 if falls below 0
-        // }
 
         _hungerLvl  -= (int)(2); // Subtract 1 from hunger every minute
         if (_hungerLvl  < 0){
@@ -106,24 +98,6 @@ public class Slime : MonoBehaviour
         }
         PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
     }
-
-    // void updateServer(){
-    //     // If have server after
-    // }
-
-    // void updateDevice(){
-    //     setPlayerTime();
-    // }
-
-    // void setPlayerTime(){
-    //     PlayerPrefs.SetString("playerTime", getTimeStr());
-    // }
-
-    // string getTimeStr(){
-    //     DateTime now = DateTime.Now; // Get current time on system
-    //     string dateFormat = now.Month + "/" + now.Day + "/" + now.Year + " " + now.Hour + ":" + now.Minute + ":" + now.Second;
-    //     return dateFormat;
-    // }
 
     TimeSpan getTimeDiff(){
         if (_serverTime){
