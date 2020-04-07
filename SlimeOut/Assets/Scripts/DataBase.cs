@@ -66,17 +66,6 @@ public class DataBase : MonoBehaviour
     }
     
     public void SaveDocument() {
-        var info = new Order
-        {
-            
-            O_slime_color = col,
-            O_balance = Inventory.instance.balance,
-            O_health = 100,
-            O_slime_level = Slime.instance.slimeLvl,
-            O_hunger_level = Slime.instance.hungerLvl,
-            O_exp_level = Slime.instance.expLvl,
-            O_item_strings = Inventory.instance.ToStringArray(),
-        };
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
         var update = Builders<Order>.Update.Set("O_slimename", Slimename)
             .Set("O_slime_color", col)
