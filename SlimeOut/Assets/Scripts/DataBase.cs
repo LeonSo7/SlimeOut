@@ -46,22 +46,20 @@ public class DataBase : MonoBehaviour
     {
         var info = new Order
         {
-            var info = new Order
-            {
-                O_username = Username,
-                O_email = Email,
-                O_password = Password,
-                O_slimename = Slimename,
-                O_slime_color = Slime_color,
-                O_balance = 50,
-                O_health = 100,
-                O_slime_level = 0,
-                O_hunger_level = 0,
-                O_exp_level = 0,
-                O_item_strings = new string[0],
-            };
-            user_info.InsertOne(info);
-            Debug.Log("seems like its working");
+            O_username = Username,
+            O_email = Email,
+            O_password = Password,
+            O_slimename = Slimename,
+            O_slime_color = col,
+            O_balance = 50,
+            O_health = 100,
+            O_slime_level = 0,
+            O_hunger_level = 0,
+            O_exp_level = 0,
+            O_item_strings = new string[0],
+        };
+        user_info.InsertOne(info);
+        Debug.Log("seems like its working");
 
         // Debug.Log("It seems that its adding data in the database");
     }

@@ -32,7 +32,12 @@ public class Slime : MonoBehaviour
         hungerLvl = db.hunger;
         expLvl = db.exp;
         slimeLvl = db.lvl;
-        colour = Int32.Parse(db.col);
+        switch (db.col) {
+            default:
+            case "Green": colour = 0; break;
+            case "Blue": colour = 1; break;
+            case "Red": colour = 2; break;
+        }
         updateState(); 
    }
    
