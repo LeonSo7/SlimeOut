@@ -53,7 +53,7 @@ namespace universal
                 O_password = Password,
                 O_slimename = Slimename,
                 O_slime_color = Slime_color,
-                O_balance = 1000,
+                O_balance = 50,
                 O_health = 100,
                 O_slime_level = 0,
                 O_hunger_level = 0,
