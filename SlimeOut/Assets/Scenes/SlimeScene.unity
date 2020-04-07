@@ -6681,6 +6681,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9bcbafee358c4fa402495b92a6646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BattleButton: {fileID: 72632637}
+  CancelButton: {fileID: 0}
+  PVEButton: {fileID: 0}
+  PVPButton: {fileID: 0}
+  EscapeButton: {fileID: 0}
+  ReturnButton: {fileID: 0}
 --- !u!1 &1951570314
 GameObject:
   m_ObjectHideFlags: 0
