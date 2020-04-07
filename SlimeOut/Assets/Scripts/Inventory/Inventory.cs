@@ -53,4 +53,8 @@ public class Inventory : MonoBehaviour
         items = new List<Item>();
         for (int i = 0; i < input.Length; i++) items.Add(new Item(input[i]));
     }
+    public void OnDeath() {
+        items =  new List<Item>();
+        balance = 0;
+    }
 }

@@ -44,15 +44,15 @@ public class Item
     public void Consume() {
         switch (type) {
             default:
-            case ItemType.blue1:    Slime.instance.hungerLvl += 5; break;
-            case ItemType.blue2:    Slime.instance.hungerLvl += 10; break;
-            case ItemType.blue3:    Slime.instance.hungerLvl += 20; break;
-            case ItemType.red1:     Slime.instance.hungerLvl += 5; break;
-            case ItemType.red2:     Slime.instance.hungerLvl += 10; break;
-            case ItemType.red3:     Slime.instance.hungerLvl += 20; break;
-            case ItemType.green1:   Slime.instance.hungerLvl += 5; break;
-            case ItemType.green2:   Slime.instance.hungerLvl += 10; break;
-            case ItemType.green3:   Slime.instance.hungerLvl += 20; break;
+            case ItemType.blue1:    Slime.instance.hungerLvl += 5; Slime.instance.colour = 1; break;
+            case ItemType.blue2:    Slime.instance.hungerLvl += 10; Slime.instance.colour = 1; break;
+            case ItemType.blue3:    Slime.instance.hungerLvl += 20; Slime.instance.colour = 1; break;
+            case ItemType.red1:     Slime.instance.hungerLvl += 5; Slime.instance.colour = 2; break;
+            case ItemType.red2:     Slime.instance.hungerLvl += 10; Slime.instance.colour = 2; break;
+            case ItemType.red3:     Slime.instance.hungerLvl += 20; Slime.instance.colour = 2; break;
+            case ItemType.green1:   Slime.instance.hungerLvl += 5; Slime.instance.colour = 0; break;
+            case ItemType.green2:   Slime.instance.hungerLvl += 10; Slime.instance.colour = 0; break;
+            case ItemType.green3:   Slime.instance.hungerLvl += 20; Slime.instance.colour = 0; break;
             case ItemType.xp1:      Slime.instance.expLvl += 5; break;
             case ItemType.xp2:      Slime.instance.expLvl += 10; break;
             case ItemType.xp3:      Slime.instance.expLvl += 20; break;
