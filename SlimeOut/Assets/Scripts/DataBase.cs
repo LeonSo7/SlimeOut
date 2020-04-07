@@ -81,7 +81,7 @@ public class DataBase : MonoBehaviour
             O_item_strings = Inventory.instance.ToStringArray(),
         };
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
-        user_info.FindOneAndReplace(filter, info);
+        user_info.FindOneAndUpdate(filter, info);
         Debug.Log("Doc updated?");
     }
     public void Register(string uname, string em, string pword, string sname, string scol)
@@ -121,6 +121,7 @@ public class DataBase : MonoBehaviour
     }
     #endregion
     public void LoadUserData(string uname) {
+        Username = uname;
         var recs = instance.UserData();
         foreach (var rec in recs)
         {
