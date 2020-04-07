@@ -3,7 +3,7 @@
 SlimeOut is an interactive pet game designed to allow users to simulate the
 experience of raising a pet slime. The user is able to interact with their pet
 in multiple ways, such as feeding their pet. The user is also able to interact
-in PVE and PVP battles. These battles are turn-by-turn style fights where a user
+in PVE battles. These battles are turn-by-turn style fights where a user
 selects moves from their slime's skill set and attempts to defeat their
 opponent. After the battle is complete, the user may receive a reward
 (i.e. currency or in-game items) depending on the outcome, and their slime will
