@@ -112,7 +112,11 @@ public class Slime : MonoBehaviour
     	get { return _expLvl; } // Accesor for exp level
     	set { // Mutator for exp level
             _expLvl = value;
-            PlayerPrefs.SetInt("_expLvl", _expLvl);
+            if (_expLvl >= 100){
+                _expLvl = 0;
+                _slimeLvl += 1;
+                PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
+            }
         } 
     }
 
