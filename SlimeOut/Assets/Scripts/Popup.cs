@@ -14,5 +14,6 @@ public class Popup : MonoBehaviour
 
             Panel.SetActive(!isActive);
         }
+        DataBase.instance.SaveDocument();
     }
 }

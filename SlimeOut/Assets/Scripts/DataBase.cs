@@ -82,7 +82,7 @@ public class DataBase : MonoBehaviour
         };
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
         user_info.FindOneAndReplace(filter, info);
-        Debug.Log("seems like its working");
+        Debug.Log("Doc updated?");
     }
     public void Register(string uname, string em, string pword, string sname, string scol)
     {
