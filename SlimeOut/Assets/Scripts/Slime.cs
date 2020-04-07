@@ -16,7 +16,7 @@ public class Slime : MonoBehaviour
     private int _colour; //0G, 1B, 2R (Slime colour)
     [SerializeField]
     private string _name;
-	// private bool _serverTime;
+	private bool _serverTime;
 
    public static Slime instance { get; private set; }
 
