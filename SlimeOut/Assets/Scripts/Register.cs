@@ -128,6 +128,8 @@ namespace universal
             bool EM = false;
             bool PW = false;
             bool RPW = false;
+            bool SN = false;
+            bool SC = false;
 
             if (Username != "")
             {
@@ -209,7 +211,25 @@ namespace universal
                 Debug.LogWarning("Re-type password field is empty");
             }
 
-            if (UN == true && EM == true && RPW == true && PW == true)
+            if(Slimename != "")
+            {
+                SN = true;
+            }
+            else
+            {
+                Debug.Log("Slime name field is empty");
+            }
+
+            if (Slime_color != null && Slime_color != colors[0])
+            {
+                SC = true;
+            }
+            else
+            {
+                Debug.Log("Slime color not chosen");
+            }
+
+            if (UN && EM && RPW && PW && SN && SC)
             {
                 bool Clear = true;
                 int i = 1;
