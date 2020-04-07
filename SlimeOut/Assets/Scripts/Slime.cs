@@ -33,6 +33,8 @@ public class Slime : MonoBehaviour
         expLvl = db.exp;
         slimeLvl = db.lvl;
         name = db.name;
+        Inventory.instance.balance = db.balance;
+        Inventory.instance.setFromStringArray(db.items);
         switch (db.col) {
             default:
             case "Green": colour = 0; break;
@@ -43,56 +45,10 @@ public class Slime : MonoBehaviour
    }
 
     void updateState(){
-        // Check if slime name exists
-        if(! PlayerPrefs.HasKey("name")){ // No name
-            _name = "Jerry";
-            PlayerPrefs.SetString("name", _name); // Default Name
-        } else { // Name exists
-            _name = PlayerPrefs.GetString("name");
-        }
-
-        // Check if slime colour exists
-        if(! PlayerPrefs.HasKey("colour")){ // No colour
-            _colour = 0;
-            PlayerPrefs.SetInt("colour", _colour); // Default colour
-        } else { // Name exists
-            _colour = PlayerPrefs.GetInt("colour");
-        }
-
-        // For testing - set colour
-        // _colour = 0;
-        // PlayerPrefs.SetInt("colour", _colour);
-
-    	if (PlayerPrefs.HasKey("_expLvl")){
-    		_expLvl = PlayerPrefs.GetInt("_expLvl");
-    	} else { // Default state - exp
-    		_expLvl = 0;
-    		PlayerPrefs.SetInt("_expLvl", _expLvl);
-    	}
-
-    	if (PlayerPrefs.HasKey("_hungerLvl")){
-    		_hungerLvl = PlayerPrefs.GetInt("_hungerLvl");
-    	} else { // Default state - hunger
-    		_hungerLvl = 100;
-    		PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
-    	}
-
-        // For testing - set hunger
-        // _hungerLvl = 2;
-        //     PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
-
-        if (PlayerPrefs.HasKey("_slimeLvl")){
-            _slimeLvl = PlayerPrefs.GetInt("_slimeLvl");
-        } else { // Default state - slime level
-            _slimeLvl = 1;
-            PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
-        }
-
         InvokeRepeating("decreaseHunger", 30f, 30f);
     }
 
     void decreaseHunger(){
-
         _hungerLvl  -= (int)(2); // Subtract 1 from hunger every minute
         if (_hungerLvl  < 0){
             _hungerLvl = 0; // Set hunger level to 0 if falls below 0

@@ -77,7 +77,7 @@ public class DataBase : MonoBehaviour
             O_health = 100,
             O_slime_level = Slime.instance.slimeLvl,
             O_hunger_level = Slime.instance.hungerLvl,
-            O_exp_level = Slime.instance.slimeLvl,
+            O_exp_level = Slime.instance.expLvl,
             O_item_strings = Inventory.instance.ToStringArray(),
         };
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
