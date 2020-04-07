@@ -28,7 +28,7 @@ public class Login : MonoBehaviour
 
         if (Username != "")
         {
-            if (Register.UserExists(Username))
+            if (DataBase.instance.UserExists(Username))
             {
                 UN = true;
                 // Lines = System.IO.File.ReadAllLines(Username + ".txt");
@@ -45,13 +45,13 @@ public class Login : MonoBehaviour
 
         if (Password != "")
         {
-            if (Register.UserExists(Username))
+            if (DataBase.instance.UserExists(Username))
             {
 
                 int i = 1;
-                if (Register.GetPassword(Username) != null)
+                if (DataBase.instance.GetPassword(Username) != null)
                 {
-                    Lines = Register.GetPassword(Username);
+                    Lines = DataBase.instance.GetPassword(Username);
                 }
                 else
                 {
