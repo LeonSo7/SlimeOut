@@ -947,6 +947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9bcbafee358c4fa402495b92a6646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BattleButton: {fileID: 0}
+  CancelButton: {fileID: 0}
+  PVEButton: {fileID: 0}
+  PVPButton: {fileID: 0}
+  EscapeButton: {fileID: 0}
+  ReturnButton: {fileID: 0}
 --- !u!4 &588698283
 Transform:
   m_ObjectHideFlags: 0
@@ -1412,7 +1418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -423.5, y: 318}
+  m_AnchoredPosition: {x: -512, y: 384}
   m_SizeDelta: {x: 416.7, y: 502.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &951362794
