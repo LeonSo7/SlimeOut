@@ -1,6 +1,6 @@
 # SlimeOut
 
-Slime Out is an interactive pet game designed to allow users to simulate the
+SlimeOut is an interactive pet game designed to allow users to simulate the
 experience of raising a pet slime. The user is able to interact with their pet
 in multiple ways, such as feeding their pet. The user is also able to interact
 in PVE and PVP battles. These battles are turn-by-turn style fights where a user
