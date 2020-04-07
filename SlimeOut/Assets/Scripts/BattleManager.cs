@@ -33,7 +33,6 @@ public class BattleManager : MonoBehaviour
     public GameObject oppB;
 
     public static Slime Slime;
-    //private static Inventory Inventory = Inventory.instance;
 
 
     private int petHealth;
@@ -41,13 +40,10 @@ public class BattleManager : MonoBehaviour
     private int oppDamage;
     private int petDamage;
     private int petLevel;
-    private int oppLevel;
+    public static int oppLevel;
     private int petColor;
-    private int oppColor;
+    public static int oppColor;
 
-    private Item[] reward;
-    private int income;
-    private int exp;
     // Start is called before the first frame update
 
     void Start()
@@ -145,27 +141,12 @@ public class BattleManager : MonoBehaviour
 
     void winBattle()
     {
-        reward = new Item[] {new Item(Item.ItemType.blue1), new Item(Item.ItemType.blue1)};
-        income = 3;
-        exp = oppLevel*10;
-        //SceneManager.LoadScene("BattleWinScene");
-        checkout();
+        SceneManager.LoadScene("BattleWinScene");
     }
 
     void loseBattle()
     {
-        income = 1;
-        exp = oppLevel;
-        //SceneManager.LoadScene("BattleLoseScene");
-        checkout();
-    }
-
-    void checkout()
-    {
-        //Inventory.balance += income;
-        Slime.expLvl += 50*exp;
-        //foreach(Item i in reward)
-            //Inventory.Add(i);
+        SceneManager.LoadScene("BattleLoseScene");
     }
 
     void triggerSlimeG(){
