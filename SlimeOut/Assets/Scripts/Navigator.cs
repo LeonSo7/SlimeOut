@@ -36,10 +36,12 @@ public class Navigator : MonoBehaviour
     }
 
     public void LogoutScene() {
+        DataBase.instance.SaveDocument();
         SceneManager.LoadScene("LogoutScene");
     }
 
 	public void Exit() {
+        SceneManager.LoadScene("Start");
 		Application.Quit();
 	}
 }
