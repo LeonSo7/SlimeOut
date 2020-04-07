@@ -117,6 +117,9 @@ public class Slime : MonoBehaviour
                 _slimeLvl += 1;
                 PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
             }
+            if (_expLvl  < 0){
+                _expLvl = 0; // Minimum exp level
+            }
         } 
     }
 
@@ -126,6 +129,9 @@ public class Slime : MonoBehaviour
             _hungerLvl = value;
             if (_hungerLvl >= 100){
                 _hungerLvl = 100;
+            }
+            if (_hungerLvl  < 0){
+                _hungerLvl = 0; // Minimum hunger level
             }
             PlayerPrefs.SetInt("_hungerLvl", _hungerLvl);
         } 
