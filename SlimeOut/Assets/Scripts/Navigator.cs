@@ -23,14 +23,6 @@ public class Navigator : MonoBehaviour
 		SceneManager.LoadScene("ShopScene");
 	}
 
-	public void BattleSelectionScene() {
-		SceneManager.LoadScene("BattleSelectionScene");
-	}
-
-    public void BattleLoadingScene() {
-        SceneManager.LoadScene("BattleLoadingScene");
-    }
-
     public void BattleLostScene() {
         SceneManager.LoadScene("BattleLostScene");
     }

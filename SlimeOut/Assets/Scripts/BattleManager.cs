@@ -132,7 +132,7 @@ public class BattleManager : MonoBehaviour
         else if(oppColor==2){oppRAnimator.SetTrigger("oppAttack");}
 
         yield return new WaitForSeconds (1);
-        oppDamage = oppLevel*5-petLevel*3;
+        oppDamage = oppLevel*3-petLevel*1;
         petDamage = 0;
         StartCoroutine(UpdateState());
         yield return new WaitForSeconds (1);
