@@ -143,6 +143,9 @@ public class Slime : MonoBehaviour
         get{ return _slimeLvl; } // Accessor for slime level
         set{ // Mutator for slime level
             _slimeLvl = value;
+            if (_slimeLvl  < 1){
+                _slimeLvl = 1; // Minimum slime level
+            }
             PlayerPrefs.SetInt("_slimeLvl", _slimeLvl);
 
         } 
