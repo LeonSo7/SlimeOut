@@ -652,7 +652,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1135611382}
-  - {fileID: 1801518239}
+  - {fileID: 2095766037}
   - {fileID: 838375904}
   - {fileID: 1084562931}
   - {fileID: 482885415}
@@ -981,7 +981,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2095766037}
+  - {fileID: 1801518239}
   - {fileID: 1793787854}
   - {fileID: 1694112921}
   m_Father: {fileID: 424286610}
@@ -1937,12 +1937,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801518238}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 424286610}
-  m_RootOrder: 1
+  m_Father: {fileID: 574203554}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2164,8 +2164,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 574203554}
-  m_RootOrder: 0
+  m_Father: {fileID: 424286610}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2238,19 +2238,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2109888240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b9edc97e905ec4468d5008f85e948af, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ba9bcbafee358c4fa402495b92a6646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expTxt: {fileID: 0}
-  hungerTxt: {fileID: 0}
-  lvlTxt: {fileID: 0}
-  namePanel: {fileID: 0}
-  nameInput: {fileID: 0}
-  nameTxt: {fileID: 0}
-  slime: {fileID: 0}
-  slimeR: {fileID: 0}
-  slimeG: {fileID: 0}
-  slimeB: {fileID: 0}
+  BattleButton: {fileID: 0}
+  CancelButton: {fileID: 0}
+  PVEButton: {fileID: 0}
+  PVPButton: {fileID: 0}
+  EscapeButton: {fileID: 0}
+  ReturnButton: {fileID: 0}
 --- !u!4 &2109888242
 Transform:
   m_ObjectHideFlags: 0
