@@ -18,7 +18,7 @@ public class Slime : MonoBehaviour
     private string _name;
 	// private bool _serverTime;
 
-   public static Slime instance { get; private set; }
+   public static Slime instance { get; set; }
 
    private void Awake() {
         if (instance == null) {
