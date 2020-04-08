@@ -67,7 +67,7 @@ public class DataBase : MonoBehaviour
     
     public void SaveDocument() {
         var filter = Builders<Order>.Filter.Eq("O_username", Username);
-        var update = Builders<Order>.Update.Set("O_slimename", Slimename)
+        var update = Builders<Order>.Update.Set("O_slimename", Slime.instance.name)
             .Set("O_slime_color", col)
             .Set("O_balance", Inventory.instance.balance)
             .Set("O_slime_level", Slime.instance.slimeLvl)
