@@ -55,6 +55,6 @@ public class Inventory : MonoBehaviour
     }
     public void OnDeath() {
         items =  new List<Item>();
-        balance = 0;
+        balance = 100;
     }
 }
