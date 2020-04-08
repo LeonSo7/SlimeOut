@@ -42,6 +42,7 @@ public class Navigator : MonoBehaviour
 
 	public void Exit() {
         SceneManager.LoadScene("Start");
+        Slime.instance = null;
 		Application.Quit();
 	}
 }
